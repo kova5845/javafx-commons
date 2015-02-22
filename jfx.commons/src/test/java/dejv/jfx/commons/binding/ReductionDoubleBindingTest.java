@@ -129,6 +129,8 @@ public class ReductionDoubleBindingTest {
     @Test
     public void callClear() {
         final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final DoubleProperty de3 = new SimpleDoubleProperty(-10);
+        cut.add(de3);
 
         cut.clear();
         assertEquals("Binding value 1", Double.NaN, cut.get(), Precision.EPSILON);

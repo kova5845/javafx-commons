@@ -79,6 +79,7 @@ public class ReductionDoubleBinding
     public void clear() {
         dependencies.forEach(this::unbind);
         dependencies.clear();
+        invalidate();
     }
 
 
