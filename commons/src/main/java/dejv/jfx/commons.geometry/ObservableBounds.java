@@ -1,6 +1,9 @@
 package dejv.jfx.commons.geometry;
 
+import static java.util.Objects.requireNonNull;
+
 import javafx.beans.binding.BooleanBinding;
+import javafx.beans.binding.DoubleExpression;
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
@@ -16,8 +19,7 @@ import org.apache.commons.math3.util.Precision;
  *
  * @author dejv78 (www.github.com/dejv78)
  */
-@SuppressWarnings("WeakerAccess")
-public abstract class AbstractObservableBounds {
+public class ObservableBounds {
 
     protected final DoubleProperty minX = new SimpleDoubleProperty(this, "minX");
     protected final DoubleProperty maxX = new SimpleDoubleProperty(this, "maxX");
@@ -34,7 +36,8 @@ public abstract class AbstractObservableBounds {
     protected final DoubleProperty height = new SimpleDoubleProperty(this, "height");
     protected final DoubleProperty depth = new SimpleDoubleProperty(this, "depth");
 
-    public AbstractObservableBounds() {
+
+    public ObservableBounds() {
         width.bind(maxX.subtract(minX));
         height.bind(maxY.subtract(minY));
         depth.bind(maxZ.subtract(minZ));
@@ -43,13 +46,40 @@ public abstract class AbstractObservableBounds {
         centerZ.bind(minZ.add(depth.divide(2.0d)));
     }
 
+
+    public ObservableBounds(DoubleExpression minX, DoubleExpression minY, DoubleExpression maxX, DoubleExpression maxY) {
+        this();
+        requireNonNull(minX, "Parameter 'minX' is null");
+        requireNonNull(minY, "Parameter 'minY' is null");
+        requireNonNull(maxX, "Parameter 'maxX' is null");
+        requireNonNull(maxY, "Parameter 'maxY' is null");
+
+        this.minX.bind(minX);
+        this.minY.bind(minY);
+        this.maxX.bind(maxX);
+        this.maxY.bind(maxY);
+    }
+
+
+    public ObservableBounds(DoubleExpression minX, DoubleExpression minY, DoubleExpression minZ, DoubleExpression maxX, DoubleExpression maxY, DoubleExpression maxZ) {
+        this(minX, minY, maxX, maxY);
+        requireNonNull(minZ, "Parameter 'minZ' is null");
+        requireNonNull(maxZ, "Parameter 'maxZ' is null");
+
+        this.minZ.bind(minZ);
+        this.maxZ.bind(maxZ);
+    }
+
+
     public double getMinX() {
         return minX.get();
     }
 
+
     public double getCenterX() {
         return centerX.get();
     }
+
 
     public double getMaxX() {
         return maxX.get();
@@ -60,9 +90,11 @@ public abstract class AbstractObservableBounds {
         return minY.get();
     }
 
+
     public double getCenterY() {
         return centerY.get();
     }
+
 
     public double getMaxY() {
         return maxY.get();
@@ -73,33 +105,41 @@ public abstract class AbstractObservableBounds {
         return minZ.get();
     }
 
+
     public double getCenterZ() {
         return centerZ.get();
     }
+
 
     public double getMaxZ() {
         return maxZ.get();
     }
 
+
     public double getWidth() {
         return width.get();
     }
+
 
     public double getHeight() {
         return height.get();
     }
 
+
     public double getDepth() {
         return depth.get();
     }
+
 
     public ReadOnlyDoubleProperty minXProperty() {
         return minX;
     }
 
+
     public ReadOnlyDoubleProperty centerXProperty() {
         return centerX;
     }
+
 
     public ReadOnlyDoubleProperty maxXProperty() {
         return maxX;
@@ -110,9 +150,11 @@ public abstract class AbstractObservableBounds {
         return minY;
     }
 
+
     public ReadOnlyDoubleProperty centerYProperty() {
         return centerY;
     }
+
 
     public ReadOnlyDoubleProperty maxYProperty() {
         return maxY;
@@ -123,9 +165,11 @@ public abstract class AbstractObservableBounds {
         return minZ;
     }
 
+
     public ReadOnlyDoubleProperty centerZProperty() {
         return centerZ;
     }
+
 
     public ReadOnlyDoubleProperty maxZProperty() {
         return maxZ;
@@ -136,12 +180,44 @@ public abstract class AbstractObservableBounds {
         return width;
     }
 
+
     public ReadOnlyDoubleProperty heightProperty() {
         return height;
     }
 
+
     public ReadOnlyDoubleProperty depthProperty() {
         return depth;
+    }
+
+
+    public void setMinX(double minX) {
+        this.minX.set(minX);
+    }
+
+
+    public void setMaxX(double maxX) {
+        this.maxX.set(maxX);
+    }
+
+
+    public void setMinY(double minY) {
+        this.minY.set(minY);
+    }
+
+
+    public void setMaxY(double maxY) {
+        this.maxY.set(maxY);
+    }
+
+
+    public void setMinZ(double minZ) {
+        this.minZ.set(minZ);
+    }
+
+
+    public void setMaxZ(double maxZ) {
+        this.maxZ.set(maxZ);
     }
 
 
@@ -149,13 +225,16 @@ public abstract class AbstractObservableBounds {
         return width.isNotEqualTo(0, Precision.EPSILON).and(height.isNotEqualTo(0, Precision.EPSILON)).and(depth.isNotEqualTo(0, Precision.EPSILON));
     }
 
+
     public BooleanBinding contains(Point2D p) {
         return contains(p.getX(), p.getY());
     }
 
+
     public BooleanBinding contains(Point3D p) {
         return contains(p.getX(), p.getY(), p.getZ());
     }
+
 
     public BooleanBinding contains(double x, double y) {
         return minX.lessThanOrEqualTo(x)
@@ -163,6 +242,7 @@ public abstract class AbstractObservableBounds {
                 .and(minY.lessThanOrEqualTo(y))
                 .and(maxY.greaterThanOrEqualTo(y));
     }
+
 
     public BooleanBinding contains(double x, double y, double z) {
         return minX.lessThanOrEqualTo(x)
@@ -173,9 +253,11 @@ public abstract class AbstractObservableBounds {
                 .and(maxZ.greaterThanOrEqualTo(z));
     }
 
+
     public BooleanBinding contains(Bounds b) {
         return contains(b.getMinX(), b.getMinY(), b.getMinZ(), b.getWidth(), b.getHeight(), b.getDepth());
     }
+
 
     public BooleanBinding contains(double x, double y, double w, double h) {
         return minX.lessThanOrEqualTo(x)
@@ -183,6 +265,7 @@ public abstract class AbstractObservableBounds {
                 .and(minY.lessThanOrEqualTo(y))
                 .and(maxY.greaterThanOrEqualTo(y + h));
     }
+
 
     public BooleanBinding contains(double x, double y, double z, double w, double h, double d) {
         return minX.lessThanOrEqualTo(x)
@@ -198,11 +281,13 @@ public abstract class AbstractObservableBounds {
         return intersects(b.getMinX(), b.getMinY(), b.getMinZ(), b.getWidth(), b.getHeight(), b.getDepth());
     }
 
+
     public BooleanBinding intersects(double x, double y, double w, double h) {
         BooleanBinding bx = (minX.lessThan(x).and(minX.greaterThanOrEqualTo(x + w))).or(maxX.greaterThan(x).and(maxX.lessThanOrEqualTo(x + w)));
         BooleanBinding by = (minY.lessThan(y).and(minY.greaterThanOrEqualTo(y + h))).or(maxY.greaterThan(y).and(maxY.lessThanOrEqualTo(y + h)));
         return bx.and(by);
     }
+
 
     public BooleanBinding intersects(double x, double y, double z, double w, double h, double d) {
         BooleanBinding bx = (minX.lessThan(x).and(minX.greaterThanOrEqualTo(x + w))).or(maxX.greaterThan(x).and(maxX.lessThanOrEqualTo(x + w)));

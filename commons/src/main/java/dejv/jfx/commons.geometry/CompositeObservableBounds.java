@@ -19,7 +19,7 @@ import org.slf4j.LoggerFactory;
  * @author dejv78 (www.github.com/dejv78)
  */
 public class CompositeObservableBounds
-        extends AbstractObservableBounds {
+        extends ObservableBounds {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(CompositeObservableBounds.class);
 
