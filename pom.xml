@@ -33,7 +33,7 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:https://github.com/dejv78/jfx.commons.git</developerConnection>
+        <developerConnection>scm:git:git@github.com:dejv78/jfx.commons.git</developerConnection>
         <url>https://github.com/dejv78/jfx.commons</url>
         <tag>HEAD</tag>
     </scm>
