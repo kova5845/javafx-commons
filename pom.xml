@@ -7,7 +7,7 @@
 
     <groupId>com.github.dejv78.jfx.commons</groupId>
     <artifactId>pom</artifactId>
-    <version>1.0.0-SNAPSHOT</version>
+    <version>1.0.0</version>
 
     <packaging>pom</packaging>
 
@@ -32,7 +32,7 @@
 
     <scm>
         <developerConnection>scm:git:https://github.com/dejv78/jfx.commons.git</developerConnection>
-        <tag>HEAD</tag>
+        <tag>v1.0.0</tag>
     </scm>
 
     <dependencyManagement>
