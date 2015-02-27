@@ -20,6 +20,7 @@
         <plugin.release.version>2.5.1</plugin.release.version>
         <plugin.resources.version>2.7</plugin.resources.version>
         <plugin.jacoco.version>0.7.2.201409121644</plugin.jacoco.version>
+        <plugin.source.version>2.4</plugin.source.version>
         <plugin.javadoc.version>2.10.1</plugin.javadoc.version>
 
         <junit.version>4.11</junit.version>
@@ -32,7 +33,9 @@
     </properties>
 
     <scm>
+        <connection>scm:git:https://github.com/dejv78/jfx.commons.git</connection>
         <developerConnection>scm:git:https://github.com/dejv78/jfx.commons.git</developerConnection>
+        <url>https://github.com/dejv78/jfx.commons</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -108,6 +111,9 @@
                 <artifactId>maven-release-plugin</artifactId>
                 <version>${plugin.release.version}</version>
                 <configuration>
+                    <useReleaseProfile>false</useReleaseProfile>
+                    <releaseProfiles>release</releaseProfiles>
+                    <autoVersionSubmodules>true</autoVersionSubmodules>
                     <tagNameFormat>v@{project.version}</tagNameFormat>
                 </configuration>
             </plugin>
@@ -154,8 +160,22 @@
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${plugin.source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.10.1</version>
+                <version>${plugin.javadoc.version}</version>
                 <executions>
                     <execution>
                         <id>attach-javadocs</id>
@@ -167,6 +187,13 @@
             </plugin>
         </plugins>
     </build>
+
+    <distributionManagement>
+        <repository>
+            <id>bintray</id>
+            <url>https://api.bintray.com/maven/dejv78/maven/jfx.commons</url>
+        </repository>
+    </distributionManagement>
 
     <repositories>
 
