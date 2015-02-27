@@ -13,9 +13,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Observable bounds, that present an union of multiple JavaFX Bounds.
- * <br/>
+ * A variant of {@link dejv.jfx.commons.geometry.ObservableBounds}, that calculates a union of multiple {@link javafx.geometry.Bounds}.
  *
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 public class CompositeObservableBounds
@@ -79,11 +79,11 @@ public class CompositeObservableBounds
 
 
     private void observedBoundsChanged(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds newValue) {
-        update();
+        invalidate();
     }
 
 
-    private void update() {
+    private void invalidate() {
         boolean initialized = false;
 
         for (ReadOnlyObjectProperty<Bounds> property : sourceBounds) {

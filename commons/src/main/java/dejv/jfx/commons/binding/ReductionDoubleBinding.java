@@ -15,11 +15,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Binding, that applies reduction on its (at least 2) dependencies.
- * If there are no dependencies, Binding value is equal to Double.NaN
- * <br/>
- *
- * @author dejv78 (www.dejv.info)
+ * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided reduction operation (represented by {@link java.util.function.BinaryOperator}) on its dependencies.
+ * <p>
+ * If there are no dependencies, binding value is equal to Double.NaN
+ * <p>
+ * @since 1.0.0
+ * @author dejv78 (www.github.com/dejv78)
  */
 public class ReductionDoubleBinding
         extends DoubleBinding {

@@ -8,9 +8,9 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * Replacement of JavaFX Point2D with observable x, y coords.
- * <br/>
- *
+ * Replacement to {@link javafx.geometry.Point2D} with observable {@link #x} and {@link #y} coords.
+ * <p>
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 public class ObservablePoint2D {

@@ -14,9 +14,24 @@ import javafx.geometry.Point3D;
 import org.apache.commons.math3.util.Precision;
 
 /**
- * Replacement of JavaFX Bounds with observable coords.
- * <br/>
- *
+ * Replacement to {@link javafx.geometry.Bounds} with observable coords.
+ * <p>
+ * The class offers following properties to observe:<br>
+ * <ul>
+ *     <li>{@link #minX}
+ *     <li>{@link #minY}
+ *     <li>{@link #minZ}
+ *     <li>{@link #centerX}
+ *     <li>{@link #centerY}
+ *     <li>{@link #centerZ}
+ *     <li>{@link #maxX}
+ *     <li>{@link #maxY}
+ *     <li>{@link #maxZ}
+ *     <li>{@link #width}
+ *     <li>{@link #height}
+ *     <li>{@link #depth}
+ * </ul>
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 public class ObservableBounds {

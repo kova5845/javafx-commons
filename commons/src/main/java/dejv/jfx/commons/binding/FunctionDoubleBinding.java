@@ -8,9 +8,11 @@ import javafx.beans.binding.DoubleBinding;
 import javafx.beans.binding.DoubleExpression;
 
 /**
- * Binding, that applies function on its dependency.
- * <br/>
- *
+ * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided function (represented by {@link java.util.function.Function}) on its dependencies.
+ * <p>
+ * If there are no dependencies, binding value is equal to Double.NaN
+ * <p>
+ * @since 1.0.0
  * @author dejv78 (www.github.com/dejv78)
  */
 public class FunctionDoubleBinding
