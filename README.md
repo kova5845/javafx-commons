@@ -2,13 +2,17 @@
 
 Provided by dejv78 under MIT license.
 
+
 ## commons
 Contains generally useful, JavaFX related code. 
 See commons/releasenotes for details on specific versions.
+
 #### Javadoc
-[On GitHub](http://dejv78.github.io/jfx.commons/)
-#### Binaries
-[On Bintray](https://bintray.com/dejv78/maven/jfx.commons/)
+Browse on GitHub: [http://dejv78.github.io/jfx.commons/](http://dejv78.github.io/jfx.commons/)
+
+#### Files
+Download on Bintray: [https://bintray.com/dejv78/maven/jfx.commons/](https://bintray.com/dejv78/maven/jfx.commons/)
+
 #### Maven
 ```xml
 <dependency>
