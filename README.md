@@ -29,7 +29,7 @@ __Note:__ It is required to include following bintray repository in Maven POM in
     <id>bintray</id>
     <url>https://api.bintray.com/maven/dejv78/maven/jfx.commons</url>
   </repository>
-</distributionManagement>```
+</distributionManagement>
 ```
 
 
