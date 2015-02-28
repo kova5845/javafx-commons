@@ -18,7 +18,7 @@ Download on Bintray: [https://bintray.com/dejv78/maven/jfx.commons/](https://bin
 <dependency>
     <groupId>com.github.dejv78.jfx.commons</groupId>
     <artifactId>commons</artifactId>
-    <version>1.0.1</version>
+    <version>X.Y.Z</version>
     <type>jar</type>
 </dependency>
 ```
@@ -31,5 +31,5 @@ __Note:__ It is required to include following bintray repository in Maven POM in
   </repository>
 </distributionManagement>
 ```
-
-
+#### News
+Visit [http://dejv78.blogspot.com/](http://dejv78.blogspot.com) for recent news on the project!
