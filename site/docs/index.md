@@ -6,7 +6,7 @@ search_omit: true
 ---
 
 ## API Documentation
-* Browse the API documentation [here](/apidocs/).
+* Browse the API documentation [here](/jfx.commons/apidocs/index.html).
 * Download it [here](https://bintray.com/artifact/download/dejv78/maven/com/github/dejv78/jfx/commons/commons/1.0.1/commons-1.0.1-javadoc.jar).
 
 ## Maven
