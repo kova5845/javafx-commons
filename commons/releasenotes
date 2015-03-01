@@ -8,13 +8,13 @@
 ## New in version 1.0.0
 ### dejv.jfx.commons.binding package
 
-* **FunctionDoubleBinding** - Allows to apply a Function on a DoubleExpression dependency
-* **ReductionDoubleBinding** - Allows to apply a Reduction on multiple DoubleExpression dependencies
+* **FunctionDoubleBinding** - Applies a Function on a DoubleExpression dependency
+* **ReductionDoubleBinding** - Reduces multiple DoubleExpression dependencies with a BinaryOperator
 
 ### dejv.jfx.commons.geometry package
 
 * **ObservableBounds** - Replacement to *javafx.geometry.Bounds* with observable properties
-* **CompositeObservableBounds** - Allows to group multiple *javafx.geometry.Bounds* properties into single, observable bounds
+* **CompositeObservableBounds** - Unites multiple *javafx.geometry.Bounds* properties into single, observable bounds
 * **ObservableDimension2D** - Replacement to *javafx.geometry.Dimension2D* with observable properties
 * **ObservablePoint2D** - Replacement to *javafx.geometry.Point2D* with observable properties
 
