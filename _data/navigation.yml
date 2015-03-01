@@ -1,0 +1,19 @@
+# Site navigation links
+
+- title: Home
+  url: /
+
+- title: About
+  url: /about/
+
+- title: Docs
+  url: /docs/
+
+- title: Download
+  url: https://bintray.com/dejv78/maven/jfx.commons/
+
+- title: Issues
+  url: https://github.com/dejv78/jfx.commons/issues/
+
+- title: Search
+  url: /search/
