@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Recent news &#8211; jfx.commons</title>
-<meta name="description" content="New and noteworty">
+<title>Docs &#8211; jfx.commons</title>
+<meta name="description" content="Project documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Recent news">
-<meta name="twitter:description" content="New and noteworty">
+<meta name="twitter:title" content="Docs">
+<meta name="twitter:description" content="Project documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent news">
-<meta property="og:description" content="New and noteworty">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="Docs">
+<meta property="og:description" content="Project documentation.">
+<meta property="og:url" content="http://localhost:4000/docs/">
 <meta property="og:site_name" content="jfx.commons">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/docs/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="jfx.commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -131,15 +131,35 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Recent news</h1>
+          <h1 class="entry-title"/>Docs</h1>
           <hr />
         </div>
       <div class="entry-content">
-        <ul class="post-list">
- 
-  <li><article><a href="http://localhost:4000/news/version-1-0-1-released/">Version 1.0.1 released! <span class="entry-date"><time datetime="2015-02-27T11:24:34+01:00">February 27, 2015</time></span></a></article></li>
-
+        <h2 id="api-documentation">API Documentation</h2>
+<ul>
+  <li>Browse the API documentation <a href="/apidocs/">here</a>.</li>
+  <li>Download it <a href="https://bintray.com/artifact/download/dejv78/maven/com/github/dejv78/jfx/commons/commons/1.0.1/commons-1.0.1-javadoc.jar">here</a>.</li>
 </ul>
+
+<h2 id="maven">Maven</h2>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.dejv78.jfx.commons&lt;/groupId&gt;
+    &lt;artifactId&gt;commons&lt;/artifactId&gt;
+    &lt;version&gt;X.Y.Z&lt;/version&gt;
+    &lt;type&gt;jar&lt;/type&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<p><strong>Note:</strong> It is required to include following bintray repository in your Maven POM:</p>
+
+<pre><code class="language-xml">&lt;distributionManagement&gt;
+    &lt;repository&gt;
+        &lt;id&gt;bintray&lt;/id&gt;
+        &lt;url&gt;https://api.bintray.com/maven/dejv78/maven/jfx.commons&lt;/url&gt;
+    &lt;/repository&gt;
+&lt;/distributionManagement&gt;
+</code></pre>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

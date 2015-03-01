@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Recent news &#8211; jfx.commons</title>
-<meta name="description" content="New and noteworty">
-
+<title>A Post with a Video &#8211; jfx.commons</title>
+<meta name="description" content="Custom written post descriptions are the way to go... if you're not lazy.">
+<meta name="keywords" content="sample-post, video">
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Recent news">
-<meta name="twitter:description" content="New and noteworty">
+<meta name="twitter:title" content="A Post with a Video">
+<meta name="twitter:description" content="Custom written post descriptions are the way to go... if you're not lazy.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent news">
-<meta property="og:description" content="New and noteworty">
-<meta property="og:url" content="http://localhost:4000/">
+<meta property="og:title" content="A Post with a Video">
+<meta property="og:description" content="Custom written post descriptions are the way to go... if you're not lazy.">
+<meta property="og:url" content="http://localhost:4000/articles/video-post/">
 <meta property="og:site_name" content="jfx.commons">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/">
+<link rel="canonical" href="http://localhost:4000/articles/video-post/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="jfx.commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -72,7 +72,7 @@
 
 </head>
 
-<body id="page">
+<body id="post">
 
 <div class="navigation-wrapper">
 	<nav role="navigation" id="site-nav" class="animated drop">
@@ -127,22 +127,62 @@
 <div class="js-menu-screen menu-screen"></div>
 
 <div id="main" role="main">
-  <article class="entry">
+  <article class="hentry">
     
     <div class="entry-wrapper">
-       <div class="divider">
-          <h1 class="entry-title"/>Recent news</h1>
-          <hr />
-        </div>
+      <header class="entry-header">
+        <span class="entry-tags"><a href="http://localhost:4000/tags/#sample-post" title="Pages tagged sample-post">sample-post</a>&nbsp;&bull;&nbsp;<a href="http://localhost:4000/tags/#video" title="Pages tagged video">video</a></span>
+        
+          <h1 class="entry-title">A Post with a Video</h1>
+        
+          <hr/>
+      </header>
+      <footer class="entry-meta">
+        
+        
+        
+          <img src="http://localhost:4000/images/bio-photo.jpg" class="bio-photo" alt="dejv bio photo"></a>
+        
+        <span class="author vcard">By <span class="fn">dejv</span></span>
+        <span class="entry-date date published"><time datetime="2013-06-25T00:00:00+02:00"><i class="fa fa-calendar-o"></i> June 25, 2013</time></span>
+        
+        
+        <span class="social-share-twitter">
+  <a href="https://twitter.com/intent/tweet?hashtags=sample-post,video&amp;text=A%20Post%20with%20a%20Video&amp;url=http://localhost:4000/articles/video-post/&amp;via=dejv78cz" title="Share on Twitter" itemprop="Twitter"><i class="fa fa-twitter-square"></i> Tweet</a>
+</span>
+<span class="social-share-facebook">
+  <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/articles/video-post/" title="Share on Facebook" itemprop="Facebook"><i class="fa fa-facebook-square"></i> Like</a>
+</span>
+<span class="social-share-googleplus">
+  <a href="https://plus.google.com/share?url=http://localhost:4000/articles/video-post/" title="Share on Google Plus" itemprop="GooglePlus"><i class="fa fa-google-plus-square"></i> +1</a>
+</span>
+<!-- /.social-share -->
+        
+      </footer>
       <div class="entry-content">
-        <ul class="post-list">
- 
-  <li><article><a href="http://localhost:4000/news/version-1-0-1-released/">Version 1.0.1 released! <span class="entry-date"><time datetime="2015-02-27T11:24:34+01:00">February 27, 2015</time></span></a></article></li>
+        <iframe width="560" height="315" src="//www.youtube.com/embed/pdSp4Y4GOQs" frameborder="0"> </iframe>
 
-</ul>
+<p>Video embeds are responsive and scale with the width of the main content block with the help of <a href="http://fitvidsjs.com/">FitVids</a>.</p>
 
+<p>Not sure if this only effects Kramdown or if it’s an issue with Markdown in general. But adding YouTube video embeds causes errors when building your Jekyll site. To fix add a space between the <code>&lt;iframe&gt;</code> tags and remove <code>allowfullscreen</code>. Example below:</p>
+
+<div class="highlight"><pre><code class="language-html" data-lang="html"><span class="nt">&lt;iframe</span> <span class="na">width=</span><span class="s">&quot;560&quot;</span> <span class="na">height=</span><span class="s">&quot;315&quot;</span> <span class="na">src=</span><span class="s">&quot;http://www.youtube.com/embed/PWf4WUoMXwg&quot;</span> <span class="na">frameborder=</span><span class="s">&quot;0&quot;</span><span class="nt">&gt;</span> <span class="nt">&lt;/iframe&gt;</span></code></pre></div>
+
+<p>And here’s a Vimeo embed for testing purposes.</p>
+
+<iframe src="//player.vimeo.com/video/98146708?title=0&amp;byline=0" width="500" height="281" frameborder="0"> </iframe>
+
+        
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
+    <nav class="pagination" role="navigation">
+      
+        <a href="http://localhost:4000/articles/readability-feature-post/" class="btn" title="Post with Large Feature Image and Text">Previous</a>
+      
+      
+        <a href="http://localhost:4000/articles/sample-link-post/" class="btn" title="Sample Link Post">Next</a>
+      
+    </nav><!-- /.pagination -->
   </article>
 </div><!-- /#main -->
 
@@ -175,7 +215,7 @@
 <script src="http://localhost:4000/assets/js/scripts.min.js"></script>
 
 
-          
+	        
 
 </body>
 </html>
