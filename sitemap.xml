@@ -6,27 +6,183 @@
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//docs/</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//news/</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//tags/</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//theme-setup/</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//about/</loc>
-    <lastmod>2015-03-01T11:56:28+01:00</lastmod>
+    <lastmod>2015-03-01T12:08:37+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/search/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/tags/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/docs/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/404.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/about/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/deprecated-list.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/allclasses-noframe.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/CompositeObservableBounds.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/package-tree.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/ObservablePoint2D.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/package-use.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/ObservableDimension2D.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/package-summary.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/package-frame.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/class-use/CompositeObservableBounds.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/class-use/ObservablePoint2D.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/class-use/ObservableDimension2D.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/class-use/ObservableBounds.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/geometry/ObservableBounds.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/ReductionDoubleBinding.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/FunctionDoubleBinding.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/package-tree.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/package-use.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/package-summary.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/package-frame.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/class-use/ReductionDoubleBinding.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/dejv/jfx/commons/binding/class-use/FunctionDoubleBinding.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/overview-tree.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/index-all.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/constant-values.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/help-doc.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/allclasses-frame.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/overview-frame.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/apidocs/overview-summary.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/news/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/news/version-1-0-1-released/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
+  </url>
+  <url>
+    <loc>http://dejv78.github.io/jfx.commons//n/theme-setup/index.html</loc>
+    <lastmod>2015-03-01T12:07:46+01:00</lastmod>
   </url>
   <url>
     <loc>http://dejv78.github.io/jfx.commons//apidocs/deprecated-list.html</loc>
