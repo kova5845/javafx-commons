@@ -16,7 +16,7 @@ import org.slf4j.LoggerFactory;
  * A variant of {@link dejv.jfx.commons.geometry.ObservableBounds}, that calculates a union of multiple {@link javafx.geometry.Bounds}.
  *
  * @since 1.0.0
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class CompositeObservableBounds
         extends ObservableBounds {

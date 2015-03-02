@@ -13,7 +13,7 @@ import org.junit.Test;
  * Test class for ObservablePoint2D.
  * <br/>
  *
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class ObservablePoint2DTest {
 

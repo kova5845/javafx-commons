@@ -11,7 +11,7 @@ import org.slf4j.LoggerFactory;
  * Replacement to {@link javafx.geometry.Point2D} with observable {@link #x} and {@link #y} coords.
  * <p>
  * @since 1.0.0
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class ObservablePoint2D {
     private static final Logger LOGGER = LoggerFactory.getLogger(ObservablePoint2D.class);

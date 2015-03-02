@@ -13,7 +13,7 @@ import javafx.beans.binding.DoubleExpression;
  * If there are no dependencies, binding value is equal to Double.NaN
  * <p>
  * @since 1.0.0
- * @author dejv78 (www.github.com/dejv78)
+ * @author dejv78 (dejv78.github.io)
  */
 public class FunctionDoubleBinding
         extends DoubleBinding {
