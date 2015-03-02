@@ -17,5 +17,5 @@ Version 1.0.1 was released today.
 * Added Javadoc
 * Fixed package folder structure
 
-See [this article](http://dejv78.blogspot.cz/2015/02/jfxcommons-version-100-released.html) for more details.
+See [this article](http://dejv78.github.io/news/jfx.commons-version-1.0.1-released/) for more details.
 

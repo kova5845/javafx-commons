@@ -226,19 +226,12 @@ span + .entry-title {
         color: #707070;
 	font-family: $alt-font;
 	font-style: italic;
-	@include font-size(30,yes,30);
+	font-size: 2.5rem;
 	font-weight: 400;
 	line-height: 1;
-	letter-spacing: -3px;
 	a {
 		color: $black;
 		text-decoration: underline;
-	}
-	@include media($medium) {
-		@include font-size(52,yes,54);
-	}
-	@include media($large) {
-		@include font-size(68,yes,72);
 	}
 }
 .divider {
