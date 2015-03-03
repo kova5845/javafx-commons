@@ -3,7 +3,7 @@
   
     {
       "title"			: "Version 1.0.1 released!",
-      "link"			: "http://dejv78.github.io/jfx.commons//news/version-1-0-1-released/",
+      "link"			: "http://dejv78.github.io/jfx.commons/news/version-1-0-1-released/",
       "excerpt"		: ""
     }
   
@@ -17,7 +17,7 @@
   
     ,{
       "title"			: "Recent news",
-      "link"			: "http://dejv78.github.io/jfx.commons//",
+      "link"			: "http://dejv78.github.io/jfx.commons/",
       "excerpt"		: "New and noteworty"
     }
   
