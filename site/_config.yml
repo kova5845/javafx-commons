@@ -5,7 +5,7 @@ locale: en_US
 description: Some useful JavaFX stuff.
 logo: site-logo.png
 search: true
-url: http://dejv78.github.io/jfx.commons/
+url: http://dejv78.github.io/jfx.commons
 
 # Jekyll configuration
 

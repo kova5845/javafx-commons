@@ -1,22 +1,22 @@
 # Site navigation links
 
 - title: Home
-  url: index.html
+  url: /index.html
 
 - title: About
-  url: about/
+  url: /about/
 
 - title: Docs
-  url: docs/
+  url: /docs/
 
 - title: Download
-  url: https://bintray.com/dejv78/maven/jfx.commons/
+  url: https://bintray.com/dejv78/maven/<project>/
 
 - title: Issues
-  url: https://github.com/dejv78/jfx.commons/issues/
+  url: https://github.com/dejv78/<project>/issues/
 
 - title: Search
-  url: search/
+  url: /search/
 
 - title: dev:dejv
   url: https:dejv78.github.io/
