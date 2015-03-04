@@ -12,7 +12,8 @@
     <packaging>pom</packaging>
 
     <modules>
-        <module>./commons/</module>
+        <module>commons-binding</module>
+        <module>commons-geometry</module>
     </modules>
 
     <properties>
