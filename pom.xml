@@ -1,20 +1,22 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
 
-    <name>dejv78 :: JavaFX Commons :: POM</name>
+    <name>dejv78 :: Commons</name>
 
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.github.dejv78.jfx.commons</groupId>
+    <groupId>com.github.dejv78.commons</groupId>
     <artifactId>pom</artifactId>
     <version>1.1.0-SNAPSHOT</version>
 
     <packaging>pom</packaging>
 
     <modules>
-        <module>commons-binding</module>
-        <module>commons-geometry</module>
-        <module>commons-input</module>
+        <module>config</module>
+        <module>config-json</module>
+        <module>jfx-binding</module>
+        <module>jfx-geometry</module>
+        <module>jfx-input</module>
     </modules>
 
     <properties>
