@@ -8,13 +8,18 @@
     <parent>
         <groupId>com.github.dejv78.commons</groupId>
         <artifactId>pom</artifactId>
-        <version>1.0.0-SNAPSHOT</version>
+        <version>1.1.0-SNAPSHOT</version>
         <relativePath>../pom.xml</relativePath>
     </parent>
 
     <groupId>com.github.dejv78.commons.config</groupId>
     <artifactId>config-json</artifactId>
     <packaging>jar</packaging>
+
+
+    <properties>
+        <jackson-core-version>2.4.4</jackson-core-version>
+    </properties>
 
     <dependencies>
 
@@ -27,6 +32,12 @@
             <groupId>com.github.dejv78.commons.config</groupId>
             <artifactId>config</artifactId>
             <version>${project.version}</version>
+        </dependency>
+
+        <dependency>
+            <groupId>com.fasterxml.jackson.core</groupId>
+            <artifactId>jackson-databind</artifactId>
+            <version>${jackson-core-version}</version>
         </dependency>
     </dependencies>
 

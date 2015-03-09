@@ -5,9 +5,9 @@ package dejv.commons.config;
  * @since 1.0.0
  * @author dejv78 (dejv78.github.io)
  */
-public interface ConfigProvider<T extends Config> {
+public interface ConfigProvider<T> {
 
-    T load();
+    T load(Class<T> clazz) throws ConfigException;
 
-    void store(T config);
+    void store(T config) throws ConfigException;
 }
