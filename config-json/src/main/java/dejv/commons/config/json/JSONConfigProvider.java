@@ -20,8 +20,8 @@ import dejv.commons.config.ConfigProvider;
  * @author dejv78 (dejv78.github.io)
  * @since 1.0.0
  */
-public class JSONConfigProvider<T>
-        implements ConfigProvider<T> {
+public class JSONConfigProvider
+        implements ConfigProvider {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JSONConfigProvider.class);
     private static final String MSG_LOADING_CONFIG = "Loading configuration from: {}";
@@ -51,7 +51,7 @@ public class JSONConfigProvider<T>
 
 
     @Override
-    public T load(Class<T> clazz) throws ConfigException {
+    public <T> T load(Class<T> clazz) throws ConfigException {
         LOGGER.info(MSG_LOADING_CONFIG, file.getPath());
 
         try {
@@ -65,7 +65,7 @@ public class JSONConfigProvider<T>
 
 
     @Override
-    public void store(T config) throws ConfigException {
+    public <T> void store(T config) throws ConfigException {
         try {
             requireNonNull(config, "Parameter 'config' is null");
 
