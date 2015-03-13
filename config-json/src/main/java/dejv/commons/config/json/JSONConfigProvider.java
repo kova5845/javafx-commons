@@ -10,6 +10,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.fasterxml.jackson.databind.SerializationFeature;
 
 import dejv.commons.config.ConfigException;
 import dejv.commons.config.ConfigProvider;
@@ -42,6 +43,8 @@ public class JSONConfigProvider
                 //noinspection ResultOfMethodCallIgnored
                 file.createNewFile();
             }
+
+            objectMapper.enable(SerializationFeature.INDENT_OUTPUT);
 
         } catch (IOException | SecurityException e) {
 
