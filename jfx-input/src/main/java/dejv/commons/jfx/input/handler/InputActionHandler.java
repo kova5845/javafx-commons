@@ -1,6 +1,7 @@
 package dejv.commons.jfx.input.handler;
 
 import javafx.scene.Node;
+import javafx.scene.input.MouseEvent;
 
 /**
  * <p>
@@ -13,6 +14,5 @@ public abstract class InputActionHandler {
     public abstract void register(Node node);
 
     public abstract void unregister(Node node);
-
 
 }

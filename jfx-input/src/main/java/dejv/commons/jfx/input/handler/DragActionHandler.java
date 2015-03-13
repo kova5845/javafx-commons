@@ -5,8 +5,6 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 
-import dejv.commons.jfx.input.action.FixedCoordinateAction;
-
 
 /**
  * <p>
@@ -17,47 +15,36 @@ import dejv.commons.jfx.input.action.FixedCoordinateAction;
 public class DragActionHandler
         extends InputActionHandler {
 
-    protected EventHandler<MouseEvent> dragEnteredHandler = this::handleDragEntered;
     protected EventHandler<MouseEvent> dragHandler = this::handleDrag;
     protected EventHandler<MouseEvent> dragFinishedHandler = this::handleDragFinished;
-    protected FixedCoordinateAction onDragStart;
-    protected FixedCoordinateAction onDrag;
-    protected FixedCoordinateAction onDragFinish;
+
+    protected EventHandler<MouseEvent> onDragStart;
+    protected EventHandler<MouseEvent> onDrag;
+    protected EventHandler<MouseEvent> onDragFinish;
+
+    protected boolean dragging = false;
 
 
-    public FixedCoordinateAction getOnDragStart() {
-        return onDragStart;
-    }
-
-
-    public void setOnDragStart(FixedCoordinateAction onDragStart) {
+    public DragActionHandler doOnDragStart(EventHandler<MouseEvent> onDragStart) {
         this.onDragStart = onDragStart;
+        return this;
     }
 
 
-    public FixedCoordinateAction getOnDrag() {
-        return onDrag;
-    }
-
-
-    public void setOnDrag(FixedCoordinateAction onDrag) {
+    public DragActionHandler doOnDrag(EventHandler<MouseEvent> onDrag) {
         this.onDrag = onDrag;
+        return this;
     }
 
 
-    public FixedCoordinateAction getOnDragFinish() {
-        return onDragFinish;
-    }
-
-
-    public void setOnDragFinish(FixedCoordinateAction onDragFinish) {
+    public DragActionHandler doOnDragFinish(EventHandler<MouseEvent> onDragFinish) {
         this.onDragFinish = onDragFinish;
+        return this;
     }
 
 
     @Override
     public void register(Node node) {
-        node.addEventFilter(MouseEvent.DRAG_DETECTED, dragEnteredHandler);
         node.addEventFilter(MouseEvent.MOUSE_DRAGGED, dragHandler);
         node.addEventFilter(MouseDragEvent.MOUSE_RELEASED, dragFinishedHandler);
     }
@@ -65,23 +52,38 @@ public class DragActionHandler
 
     @Override
     public void unregister(Node node) {
-        node.removeEventFilter(MouseEvent.DRAG_DETECTED, dragEnteredHandler);
         node.removeEventFilter(MouseEvent.MOUSE_DRAGGED, dragHandler);
         node.removeEventFilter(MouseDragEvent.MOUSE_RELEASED, dragFinishedHandler);
     }
 
 
-    private void handleDragEntered(MouseEvent event) {
-
+    protected boolean isApplicable(MouseEvent event) {
+        return true;
     }
 
 
     private void handleDrag(MouseEvent event) {
-
+        if (!dragging) {
+            performAction(onDragStart, event);
+            dragging = true;
+        } else {
+            performAction(onDrag, event);
+        }
     }
 
 
     private void handleDragFinished(MouseEvent event) {
-
+        if (dragging) {
+            performAction(onDragFinish, event);
+            dragging = false;
+        }
     }
+
+
+    private void performAction(EventHandler<MouseEvent> handler, MouseEvent event) {
+        if ((handler != null) && (isApplicable(event))) {
+            handler.handle(event);
+        }
+    }
+
 }

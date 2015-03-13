@@ -14,7 +14,8 @@ public class Modifiers {
     private boolean shortcut = false;
 
 
-    public Modifiers() {
+    public static Modifiers empty() {
+        return new Modifiers();
     }
 
 

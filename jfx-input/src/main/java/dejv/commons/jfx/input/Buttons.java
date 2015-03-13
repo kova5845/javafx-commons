@@ -7,27 +7,28 @@ package dejv.commons.jfx.input;
  * @since 1.0.0
  */
 public class Buttons {
-    private boolean left;
+    private boolean primary;
     private boolean middle;
-    private boolean right;
+    private boolean secondary;
 
 
-    public Buttons() {
+    public static Buttons empty() {
+        return new Buttons();
     }
 
 
-    public boolean isLeft() {
-        return left;
+    public boolean isPrimary() {
+        return primary;
     }
 
 
-    public void setLeft(boolean left) {
-        this.left = left;
+    public void setPrimary(boolean primary) {
+        this.primary = primary;
     }
 
 
-    public Buttons withLeft() {
-        setLeft(true);
+    public Buttons withPrimary() {
+        setPrimary(true);
         return this;
     }
 
@@ -48,18 +49,18 @@ public class Buttons {
     }
 
 
-    public boolean isRight() {
-        return right;
+    public boolean isSecondary() {
+        return secondary;
     }
 
 
-    public void setRight(boolean right) {
-        this.right = right;
+    public void setSecondary(boolean secondary) {
+        this.secondary = secondary;
     }
 
 
-    public Buttons withRight() {
-        setRight(true);
+    public Buttons withSecondary() {
+        setSecondary(true);
         return this;
     }
 
