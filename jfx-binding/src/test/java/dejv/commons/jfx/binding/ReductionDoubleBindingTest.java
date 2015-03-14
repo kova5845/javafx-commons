@@ -12,6 +12,8 @@ import org.apache.commons.math3.util.Precision;
 import org.junit.Before;
 import org.junit.Test;
 
+import dejv.commons.binding.ReductionDoubleBinding;
+
 /**
  * Test class for ReductionDoubleBinding
  * <br/>

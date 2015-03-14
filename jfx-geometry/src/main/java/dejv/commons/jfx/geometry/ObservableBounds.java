@@ -18,21 +18,22 @@ import org.apache.commons.math3.util.Precision;
  * <p>
  * The class offers following properties to observe:<br>
  * <ul>
- *     <li>{@link #minX}
- *     <li>{@link #minY}
- *     <li>{@link #minZ}
- *     <li>{@link #centerX}
- *     <li>{@link #centerY}
- *     <li>{@link #centerZ}
- *     <li>{@link #maxX}
- *     <li>{@link #maxY}
- *     <li>{@link #maxZ}
- *     <li>{@link #width}
- *     <li>{@link #height}
- *     <li>{@link #depth}
+ * <li>{@link #minX}
+ * <li>{@link #minY}
+ * <li>{@link #minZ}
+ * <li>{@link #centerX}
+ * <li>{@link #centerY}
+ * <li>{@link #centerZ}
+ * <li>{@link #maxX}
+ * <li>{@link #maxY}
+ * <li>{@link #maxZ}
+ * <li>{@link #width}
+ * <li>{@link #height}
+ * <li>{@link #depth}
  * </ul>
- * @since 1.0.0
+ *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 public class ObservableBounds {
 
@@ -91,6 +92,11 @@ public class ObservableBounds {
     }
 
 
+    public void setMinX(double minX) {
+        this.minX.set(minX);
+    }
+
+
     public double getCenterX() {
         return centerX.get();
     }
@@ -101,8 +107,18 @@ public class ObservableBounds {
     }
 
 
+    public void setMaxX(double maxX) {
+        this.maxX.set(maxX);
+    }
+
+
     public double getMinY() {
         return minY.get();
+    }
+
+
+    public void setMinY(double minY) {
+        this.minY.set(minY);
     }
 
 
@@ -116,8 +132,18 @@ public class ObservableBounds {
     }
 
 
+    public void setMaxY(double maxY) {
+        this.maxY.set(maxY);
+    }
+
+
     public double getMinZ() {
         return minZ.get();
+    }
+
+
+    public void setMinZ(double minZ) {
+        this.minZ.set(minZ);
     }
 
 
@@ -128,6 +154,11 @@ public class ObservableBounds {
 
     public double getMaxZ() {
         return maxZ.get();
+    }
+
+
+    public void setMaxZ(double maxZ) {
+        this.maxZ.set(maxZ);
     }
 
 
@@ -203,36 +234,6 @@ public class ObservableBounds {
 
     public ReadOnlyDoubleProperty depthProperty() {
         return depth;
-    }
-
-
-    public void setMinX(double minX) {
-        this.minX.set(minX);
-    }
-
-
-    public void setMaxX(double maxX) {
-        this.maxX.set(maxX);
-    }
-
-
-    public void setMinY(double minY) {
-        this.minY.set(minY);
-    }
-
-
-    public void setMaxY(double maxY) {
-        this.maxY.set(maxY);
-    }
-
-
-    public void setMinZ(double minZ) {
-        this.minZ.set(minZ);
-    }
-
-
-    public void setMaxZ(double maxZ) {
-        this.maxZ.set(maxZ);
     }
 
 

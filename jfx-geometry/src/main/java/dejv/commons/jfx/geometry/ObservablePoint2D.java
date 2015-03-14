@@ -10,8 +10,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Replacement to {@link javafx.geometry.Point2D} with observable {@link #x} and {@link #y} coords.
  * <p>
- * @since 1.0.0
+ *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 public class ObservablePoint2D {
     private static final Logger LOGGER = LoggerFactory.getLogger(ObservablePoint2D.class);
@@ -32,6 +33,7 @@ public class ObservablePoint2D {
         this.y.set(y);
     }
 
+
     public ObservablePoint2D(DoubleExpression x, DoubleExpression y) {
         LOGGER.trace("ObservablePoint2D(x={}, y={})", x, y);
 
@@ -39,13 +41,9 @@ public class ObservablePoint2D {
         this.y.bind(y);
     }
 
+
     public double getX() {
         return x.get();
-    }
-
-
-    public DoubleProperty xProperty() {
-        return x;
     }
 
 
@@ -56,13 +54,13 @@ public class ObservablePoint2D {
     }
 
 
-    public double getY() {
-        return y.get();
+    public DoubleProperty xProperty() {
+        return x;
     }
 
 
-    public DoubleProperty yProperty() {
-        return y;
+    public double getY() {
+        return y.get();
     }
 
 
@@ -73,8 +71,13 @@ public class ObservablePoint2D {
     }
 
 
+    public DoubleProperty yProperty() {
+        return y;
+    }
+
+
     @Override
     public String toString() {
-        return "ObservablePoint2D [x: "+ x + ", y: " + y + "]";
+        return "ObservablePoint2D [x: " + x + ", y: " + y + "]";
     }
 }

@@ -16,10 +16,11 @@ import dejv.commons.config.ConfigException;
 import dejv.commons.config.ConfigProvider;
 
 /**
+ * JSON configuration persistence backend.
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
- * @since 1.0.0
+ * @since 1.1.0
  */
 public class JSONConfigProvider
         implements ConfigProvider {
@@ -36,6 +37,12 @@ public class JSONConfigProvider
     private final File file;
 
 
+    /**
+     * Initialize the JSON backend, and link it to the physical file.
+     *
+     * @param filePath Path of the file to load (resp. store) the configuration from (resp. to).
+     * @throws ConfigException When it is not possible to open the file on the given path.
+     */
     public JSONConfigProvider(Path filePath) throws ConfigException {
         file = filePath.toFile();
         try {

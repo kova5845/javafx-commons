@@ -10,8 +10,9 @@ import org.slf4j.LoggerFactory;
 /**
  * Replacement to {@link javafx.geometry.Dimension2D} with observable {@link #width} and {@link #height} coords.
  * <p>
- * @since 1.0.0
+ *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 public class ObservableDimension2D {
 

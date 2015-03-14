@@ -5,6 +5,7 @@ import javafx.scene.Node;
 import javafx.scene.input.ScrollEvent;
 
 /**
+ * Common handler class for scrolling events.
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
@@ -19,6 +20,12 @@ public class ScrollActionHandler
     protected EventHandler<ScrollEvent> onScroll;
 
 
+    /**
+     * Sets the handler, that should be called, when scrolling action occurs.
+     *
+     * @param onScroll Valid Scroll Event handler, or null for no "On scroll" action.
+     * @return This instance with given "On scroll" handler included.
+     */
     public ScrollActionHandler doOnScroll(EventHandler<ScrollEvent> onScroll) {
         this.onScroll = onScroll;
         return this;

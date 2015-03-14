@@ -1,4 +1,4 @@
-package dejv.commons.jfx.binding;
+package dejv.commons.binding;
 
 import static java.util.Objects.requireNonNull;
 
@@ -19,8 +19,9 @@ import org.slf4j.LoggerFactory;
  * <p>
  * If there are no dependencies, binding value is equal to Double.NaN
  * <p>
- * @since 1.0.0
+ *
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 public class ReductionDoubleBinding
         extends DoubleBinding {

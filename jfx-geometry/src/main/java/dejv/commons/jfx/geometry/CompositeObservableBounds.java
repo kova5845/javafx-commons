@@ -13,10 +13,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 /**
- * A variant of {@link dejv.jfx.commons.geometry.ObservableBounds}, that calculates a union of multiple {@link javafx.geometry.Bounds}.
+ * A variant of {@link dejv.commons.jfx.geometry.ObservableBounds}, that calculates a union of multiple {@link javafx.geometry.Bounds}.
  *
- * @since 1.0.0
  * @author dejv78 (dejv78.github.io)
+ * @since 1.0.0
  */
 public class CompositeObservableBounds
         extends ObservableBounds {
@@ -78,6 +78,13 @@ public class CompositeObservableBounds
     }
 
 
+    @Override
+    public String toString() {
+        return "CompositeObservableBounds: [minX: " + getMinX() + ", minY: " + getMinY() + ", minZ: " + getMinZ() + "]" +
+                "[maxX: " + getMaxX() + ", maxY: " + getMaxY() + ", maxZ: " + getMaxZ() + "]";
+    }
+
+
     private void observedBoundsChanged(ObservableValue<? extends Bounds> observable, Bounds oldValue, Bounds newValue) {
         invalidate();
     }
@@ -116,12 +123,5 @@ public class CompositeObservableBounds
 
     private double ceilIfNeeded(double value) {
         return (rounded) ? Math.ceil(value) : value;
-    }
-
-
-    @Override
-    public String toString() {
-        return "CompositeObservableBounds: [minX: " + getMinX() + ", minY: " + getMinY() + ", minZ: " + getMinZ() + "]" +
-                "[maxX: " + getMaxX() + ", maxY: " + getMaxY() + ", maxZ: " + getMaxZ() + "]";
     }
 }
