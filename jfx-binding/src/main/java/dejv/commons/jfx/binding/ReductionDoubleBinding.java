@@ -1,4 +1,4 @@
-package dejv.commons.binding;
+package dejv.commons.jfx.binding;
 
 import static java.util.Objects.requireNonNull;
 
