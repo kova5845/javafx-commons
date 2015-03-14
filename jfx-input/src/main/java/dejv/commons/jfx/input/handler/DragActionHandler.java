@@ -7,6 +7,8 @@ import javafx.scene.Node;
 import javafx.scene.input.MouseDragEvent;
 import javafx.scene.input.MouseEvent;
 
+import dejv.commons.jfx.input.properties.MouseEventProperties;
+
 
 /**
  * Common handler class for drag events.
@@ -18,14 +20,35 @@ import javafx.scene.input.MouseEvent;
 public class DragActionHandler
         extends InputActionHandler {
 
-    protected EventHandler<MouseEvent> dragHandler = this::handleDrag;
-    protected EventHandler<MouseEvent> dragFinishedHandler = this::handleDragFinished;
+    private final MouseEventProperties properties;
 
-    protected EventHandler<MouseEvent> onDragStart;
-    protected EventHandler<MouseEvent> onDrag;
-    protected EventHandler<MouseEvent> onDragFinish;
+    private final EventHandler<MouseEvent> dragHandler = this::handleDrag;
+    private final EventHandler<MouseEvent> dragFinishedHandler = this::handleDragFinished;
+
+    private EventHandler<MouseEvent> onDragStart;
+    private EventHandler<MouseEvent> onDrag;
+    private EventHandler<MouseEvent> onDragFinish;
 
     protected boolean dragging = false;
+
+    protected DragActionHandler(MouseEventProperties properties) {
+        requireNonNull(properties, "Parameter 'properties' is null");
+
+        this.properties = properties;
+    }
+
+
+    /**
+     * Create the handler from given properties.
+     *
+     * @param properties Mouse gesture properties. Must be given.
+     * @return New instance of DragActionHandler, based on given properties.
+     * @throws java.lang.NullPointerException when properties parameter is null.
+     */
+    public static DragActionHandler from(MouseEventProperties properties) {
+
+        return new DragActionHandler(properties);
+    }
 
 
     /**
@@ -83,7 +106,7 @@ public class DragActionHandler
 
 
     protected boolean isApplicable(MouseEvent event) {
-        return true;
+        return properties.isMatching(event);
     }
 
 

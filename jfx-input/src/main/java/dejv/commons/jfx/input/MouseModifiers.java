@@ -1,33 +1,42 @@
 package dejv.commons.jfx.input;
 
 /**
- * Holder class for modifier-keys combination of the gesture and mouse events.
+ * Holder class for modifier-keys combination of the mouse events.
  * <p>
  * <dl><dt>Example:</dt></dl>
- * To instantiate the Modifier class for event, that should trigger with simultaneous press of Alt and Ctrl keys, use:
+ * To instantiate the MouseModifiers class for event, that should trigger with simultaneous press of Alt and Ctrl keys, use:
  * <pre>
  *  <code>
- * new Modifier().withAlt().withControl();
+ * new MouseModifiers().withAlt().withControl();
  *  </code>
  * </pre>
  *
  * @author dejv78 (dejv78.github.io)
  * @since 1.1.0
  */
-public class Modifiers {
+public class MouseModifiers {
 
     private boolean shift = false;
     private boolean control = false;
     private boolean alt = false;
     private boolean meta = false;
-    private boolean shortcut = false;
 
 
     /**
-     * Creates the new instance of Modifiers class with no modifiers included.
+     * Creates the new instance of MouseModifiers class with no modifiers included.
      */
-    public static Modifiers empty() {
-        return new Modifiers();
+    public static MouseModifiers none() {
+        return new MouseModifiers();
+    }
+
+
+    /**
+     * Informs in shortcut, whether there are no modifiers set.
+     *
+     * @return True if there are no modifiers set, false otherwise.
+     */
+    public boolean isNone() {
+        return !(isShift() || isAlt() || isControl() || isMeta());
     }
 
 
@@ -56,7 +65,7 @@ public class Modifiers {
      *
      * @return This instance with Shift modifier included.
      */
-    public Modifiers withShift() {
+    public MouseModifiers withShift() {
         setShift(true);
         return this;
     }
@@ -87,7 +96,7 @@ public class Modifiers {
      *
      * @return This instance with Control modifier included.
      */
-    public Modifiers withControl() {
+    public MouseModifiers withControl() {
         setControl(true);
         return this;
     }
@@ -118,7 +127,7 @@ public class Modifiers {
      *
      * @return This instance with Alt modifier included.
      */
-    public Modifiers withAlt() {
+    public MouseModifiers withAlt() {
         setAlt(true);
         return this;
     }
@@ -149,39 +158,8 @@ public class Modifiers {
      *
      * @return This instance with Meta modifier included.
      */
-    public Modifiers withMeta() {
+    public MouseModifiers withMeta() {
         setMeta(true);
-        return this;
-    }
-
-
-    /**
-     * Provides the information, if the Shortcut modifier should be active for the related event to trigger.
-     *
-     * @return True if the Shortcut modifier is included, false otherwise.
-     */
-    public boolean isShortcut() {
-        return shortcut;
-    }
-
-
-    /**
-     * Sets the state of the shortcut modifier.
-     *
-     * @param shortcut Set true to include the modifier, false to exclude it.
-     */
-    public void setShortcut(boolean shortcut) {
-        this.shortcut = shortcut;
-    }
-
-
-    /**
-     * Includes the Shortcut modifier setting.
-     *
-     * @return This instance with Shortcut modifier included.
-     */
-    public Modifiers withShortcut() {
-        setShortcut(true);
         return this;
     }
 }

@@ -2,7 +2,7 @@ package dejv.commons.jfx.input.properties;
 
 import javafx.scene.input.GestureEvent;
 
-import dejv.commons.jfx.input.Modifiers;
+import dejv.commons.jfx.input.GestureModifiers;
 
 /**
  * Holder class for desired properties of GestureEvent.
@@ -13,19 +13,19 @@ import dejv.commons.jfx.input.Modifiers;
  */
 public class GestureEventProperties {
 
-    private final Modifiers modifiers;
+    private final GestureModifiers gestureModifiers;
 
 
     /**
      * Construct new instance of GestureEventProperties with given Modifiers.
      *
-     * @param modifiers Valid Modifiers, or null for none required.
+     * @param gestureModifiers Valid Modifiers, or null for none required.
      */
-    public GestureEventProperties(Modifiers modifiers) {
-        if (modifiers != null) {
-            this.modifiers = modifiers;
+    public GestureEventProperties(GestureModifiers gestureModifiers) {
+        if (gestureModifiers != null) {
+            this.gestureModifiers = gestureModifiers;
         } else {
-            this.modifiers = Modifiers.empty();
+            this.gestureModifiers = GestureModifiers.none();
         }
     }
 
@@ -35,8 +35,8 @@ public class GestureEventProperties {
      *
      * @return The current set of Modifiers for this GestureEvent.
      */
-    public Modifiers getModifiers() {
-        return modifiers;
+    public GestureModifiers getModifiers() {
+        return gestureModifiers;
     }
 
 
@@ -44,15 +44,17 @@ public class GestureEventProperties {
      * Check, whether the given GestureEvent is matching the current properties.
      *
      * @param event GestureEvent to test.
-     * @return True, if the event matches these properties, false if not (or if the event parameter is null).
+     * @return True, if no modifiers are set, or the event matches exactly the properties.
+     * False, if some modifiers are set, and the event doesn't match them, or if the event is null.
      */
     public boolean isMatching(GestureEvent event) {
         return (event != null) && !event.isConsumed()
-                && (event.isAltDown() == getModifiers().isAlt())
-                && (event.isShiftDown() == getModifiers().isShift())
-                && (event.isControlDown() == getModifiers().isControl())
-                && (event.isMetaDown() == getModifiers().isMeta())
-                && (event.isShortcutDown() == getModifiers().isShortcut());
+                && (gestureModifiers.isNone()
+                || ((event.isAltDown() == gestureModifiers.isAlt())
+                && (event.isShiftDown() == gestureModifiers.isShift())
+                && (event.isControlDown() == gestureModifiers.isControl())
+                && (event.isMetaDown() == gestureModifiers.isMeta())
+                && (event.isShortcutDown() == gestureModifiers.isShortcut())));
     }
 
 }

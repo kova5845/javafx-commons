@@ -1,8 +1,12 @@
 package dejv.commons.jfx.input.handler;
 
+import static java.util.Objects.requireNonNull;
+
 import javafx.event.EventHandler;
 import javafx.scene.Node;
 import javafx.scene.input.ScrollEvent;
+
+import dejv.commons.jfx.input.properties.GestureEventProperties;
 
 /**
  * Common handler class for scrolling events.
@@ -15,9 +19,32 @@ public class ScrollActionHandler
         extends InputActionHandler {
 
 
-    private EventHandler<ScrollEvent> scrollHandler = this::handleScroll;
+    private final GestureEventProperties properties;
 
-    protected EventHandler<ScrollEvent> onScroll;
+    private final EventHandler<ScrollEvent> scrollHandler = this::handleScroll;
+
+    private EventHandler<ScrollEvent> onScroll;
+
+
+
+    protected ScrollActionHandler(GestureEventProperties properties) {
+        requireNonNull(properties, "Parameter 'properties' is null");
+
+        this.properties = properties;
+    }
+
+
+
+    /**
+     * Create the handler from given properties.
+     *
+     * @param properties Mouse gesture properties. Must be given.
+     * @return New instance of MouseScrollActionHandler, based on given properties.
+     * @throws java.lang.NullPointerException when properties parameter is null.
+     */
+    public static ScrollActionHandler from(GestureEventProperties properties) {
+        return new ScrollActionHandler(properties);
+    }
 
 
     /**
@@ -45,7 +72,7 @@ public class ScrollActionHandler
 
 
     protected boolean isApplicable(ScrollEvent event) {
-        return true;
+        return properties.isMatching(event);
     }
 
 
