@@ -26,6 +26,7 @@
 * Added **ScrollActionHandler** - Handler for scroll actions
 
 #### package dejv.jfx.commons.input.properties
+
 * Added **GestureEventProperties** - Container for properties of GestureEventHandler
 * Added **MouseEventProperties** - Container for properties of MouseEventHandler
 
