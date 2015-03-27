@@ -177,26 +177,23 @@ Support for keyboard shortcuts etc. will be added in future, as required.</p>
 
 <p>The handler is created with a defined set of properties, and registered using the <em>register(Node node)</em> method.</p>
 
-<pre><code class="language-java">
-&lt;div class="highlight"&gt;&lt;pre&gt;&lt;code class="language-java" data-lang="java"&gt;&lt;span class="c1"&gt;// Lets assume, we have a node, that we want to handle the &amp;quot;drag&amp;quot; event on:&lt;/span&gt;
-&lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;Node&lt;/span&gt; &lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;;&lt;/span&gt;
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Lets assume, we have a node, that we want to handle the &quot;drag&quot; event on:</span>
+<span class="kd">final</span> <span class="n">Node</span> <span class="n">node</span><span class="o">;</span>
 
-&lt;span class="c1"&gt;// ...and that we want the event to only trigger, if the primary mouse button&lt;/span&gt;
-&lt;span class="c1"&gt;// was pressed together with &amp;lt;Alt&amp;gt; and &amp;lt;Shift&amp;gt; keys:&lt;/span&gt;
+<span class="c1">// ...and that we want the event to only trigger, if the primary mouse button</span>
+<span class="c1">// was pressed together with &lt;Alt&gt; and &lt;Shift&gt; keys:</span>
 
-&lt;span class="kd"&gt;final&lt;/span&gt; &lt;span class="n"&gt;MouseEventProperties&lt;/span&gt; &lt;span class="n"&gt;dragProperties&lt;/span&gt; 
-    &lt;span class="o"&gt;=&lt;/span&gt; &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;MouseEventProperties&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;
-           &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;MouseModifiers&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;withAlt&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;withShift&lt;/span&gt;&lt;span class="o"&gt;(),&lt;/span&gt; 
-           &lt;span class="k"&gt;new&lt;/span&gt; &lt;span class="nf"&gt;MouseButtons&lt;/span&gt;&lt;span class="o"&gt;().&lt;/span&gt;&lt;span class="na"&gt;withPrimary&lt;/span&gt;&lt;span class="o"&gt;());&lt;/span&gt;
+<span class="kd">final</span> <span class="n">MouseEventProperties</span> <span class="n">dragProperties</span> 
+    <span class="o">=</span> <span class="k">new</span> <span class="nf">MouseEventProperties</span><span class="o">(</span>
+           <span class="k">new</span> <span class="nf">MouseModifiers</span><span class="o">().</span><span class="na">withAlt</span><span class="o">().</span><span class="na">withShift</span><span class="o">(),</span> 
+           <span class="k">new</span> <span class="nf">MouseButtons</span><span class="o">().</span><span class="na">withPrimary</span><span class="o">());</span>
 
-&lt;span class="c1"&gt;// We can then handle the complete &amp;quot;drag&amp;quot; session with a single command:&lt;/span&gt;
-&lt;span class="n"&gt;DragActionHandler&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;with&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;dragProperties&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; 
-    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doOnDragStart&lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="cm"&gt;/* handle drag start */&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doOnDrag&lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="cm"&gt;/* handle drag */&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;doOnDragFinish&lt;/span&gt;&lt;span class="o"&gt;((&lt;/span&gt;&lt;span class="n"&gt;event&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt; &lt;span class="o"&gt;-&amp;gt;&lt;/span&gt; &lt;span class="cm"&gt;/* handle drag finish */&lt;/span&gt;&lt;span class="o"&gt;)&lt;/span&gt;
-    &lt;span class="o"&gt;.&lt;/span&gt;&lt;span class="na"&gt;register&lt;/span&gt;&lt;span class="o"&gt;(&lt;/span&gt;&lt;span class="n"&gt;node&lt;/span&gt;&lt;span class="o"&gt;);&lt;/span&gt; &lt;span class="c1"&gt;// This will register it on the node&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
-
-</code></pre>
+<span class="c1">// We can then handle the complete &quot;drag&quot; session with a single command:</span>
+<span class="n">DragActionHandler</span><span class="o">.</span><span class="na">with</span><span class="o">(</span><span class="n">dragProperties</span><span class="o">)</span> 
+    <span class="o">.</span><span class="na">doOnDragStart</span><span class="o">((</span><span class="n">event</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="cm">/* handle drag start */</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">doOnDrag</span><span class="o">((</span><span class="n">event</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="cm">/* handle drag */</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">doOnDragFinish</span><span class="o">((</span><span class="n">event</span><span class="o">)</span> <span class="o">-&gt;</span> <span class="cm">/* handle drag finish */</span><span class="o">)</span>
+    <span class="o">.</span><span class="na">register</span><span class="o">(</span><span class="n">node</span><span class="o">);</span> <span class="c1">// This will register it on the node</span></code></pre></div>
 
 <h3 id="subscribing-for-the-scroll-event">Subscribing for the scroll event</h3>
 
