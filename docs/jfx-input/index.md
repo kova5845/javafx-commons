@@ -82,6 +82,7 @@ final GestureEventProperties scrollProperties
 ScrollActionHandler.with(scrollProperties) 
     .doOnScroll((event) -> /* handle the scroll */)
     .register(node); 
+
 ```
 
 
