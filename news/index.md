@@ -1,8 +1,8 @@
 ---
 layout: page
-title: Recent news
-excerpt: "New and noteworty"
-modified: 2015-03-01T01:09:00.564948-04:00
+title: News
+excerpt: "An archive of blog posts sorted by date."
+search_omit: true
 ---
 
 <ul class="post-list">

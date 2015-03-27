@@ -1,46 +1,42 @@
+---
+sitemap: false
+---
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
-<title type="text">commons</title>
+<title type="text">{{ site.title }}</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="https://dejv78.github.io/commons/feed.xml" />
-<link rel="alternate" type="text/html" href="https://dejv78.github.io/commons" />
-<updated>2015-03-27T17:54:00+01:00</updated>
-<id>https://dejv78.github.io/commons/</id>
+<link rel="self" type="application/atom+xml" href="{{ site.url }}/feed.xml" />
+<link rel="alternate" type="text/html" href="{{ site.url }}" />
+<updated>{{ site.time | date_to_xmlschema }}</updated>
+<id>{{ site.url }}/</id>
 <author>
-  <name>dejv</name>
-  <uri>https://dejv78.github.io/commons/</uri>
-  <email>dejv78@gmail.com</email>
+  <name>{{ site.owner.name }}</name>
+  <uri>{{ site.url }}/</uri>
+  {% if site.owner.email %}<email>{{ site.owner.email }}</email>{% endif %}
 </author>
-
-
-  
-
+{% for post in site.posts limit:20 %}
+{% if post.author %}
+  {% assign author = site.data.authors[post.author] %}
+{% else %}
+  {% assign author = site.owner %}
+{% endif %}
 <entry>
-  <title type="html"><![CDATA[Version 1.0.1 released!]]></title>
-  <link rel="alternate" type="text/html" href="https://dejv78.github.io/commons/news/version-1-0-1-released/" />
-  <id>https://dejv78.github.io/commons/news/version-1-0-1-released</id>
-  <published>2015-02-27T11:24:34+01:00</published>
-  <updated>2015-02-27T11:24:34+01:00</updated>
+  <title type="html"><![CDATA[{{ post.title | cdata_escape }}]]></title>
+  <link rel="alternate" type="text/html" href="{{ site.url }}{{ post.url }}" />
+  <id>{{ site.url }}{{ post.id }}</id>
+  {% if post.modified %}<updated>{{ post.modified | to_xmlschema }}T00:00:00-00:00</updated>
+  <published>{{ post.date | date_to_xmlschema }}</published>
+  {% else %}<published>{{ post.date | date_to_xmlschema }}</published>
+  <updated>{{ post.date | date_to_xmlschema }}</updated>{% endif %}
   <author>
-    <name>dejv</name>
-    <uri>https://dejv78.github.io/commons</uri>
-    <email>dejv78@gmail.com</email>
+    <name>{{ author.name }}</name>
+    <uri>{{ site.url }}</uri>
+    {% if author.email %}<email>{{ author.email }}</email>{% endif %}
   </author>
   <content type="html">
-    &lt;p&gt;Version 1.0.1 was released today. &lt;/p&gt;
-
-&lt;h2 id=&quot;whats-new-in-this-version&quot;&gt;What’s new in this version&lt;/h2&gt;
-
-&lt;ul&gt;
-  &lt;li&gt;Added Javadoc&lt;/li&gt;
-  &lt;li&gt;Fixed package folder structure&lt;/li&gt;
-&lt;/ul&gt;
-
-&lt;p&gt;See &lt;a href=&quot;http://dejv78.github.io/news/commons-version-1.0.1-released/&quot;&gt;this article&lt;/a&gt; for more details.&lt;/p&gt;
-
-
-    &lt;p&gt;&lt;a href=&quot;https://dejv78.github.io/commons/news/version-1-0-1-released/&quot;&gt;Version 1.0.1 released!&lt;/a&gt; was originally published by dejv at &lt;a href=&quot;https://dejv78.github.io/commons&quot;&gt;commons&lt;/a&gt; on February 27, 2015.&lt;/p&gt;
+    {{ post.content | xml_escape }}
+    {% include feed-footer.html %}
   </content>
 </entry>
-
+{% endfor %}
 </feed>
