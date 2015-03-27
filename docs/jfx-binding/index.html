@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Page Not Found &#8211; commons</title>
-
+<title>jfx-binding &#8211; commons</title>
+<meta name="description" content="Project documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Page Not Found">
-
+<meta name="twitter:title" content="jfx-binding">
+<meta name="twitter:description" content="Project documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Page Not Found">
-
-<meta property="og:url" content="http://localhost:4000/404.html">
+<meta property="og:title" content="jfx-binding">
+<meta property="og:description" content="Project documentation.">
+<meta property="og:url" content="http://localhost:4000/docs/jfx-binding/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/404.html">
+<link rel="canonical" href="http://localhost:4000/docs/jfx-binding/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,20 +136,107 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Page Not Found</h1>
+          <h1 class="entry-title"/>jfx-binding</h1>
           <hr />
         </div>
       <div class="entry-content">
-        <p>Sorry, but the page you were trying to view does not exist — perhaps you can try searching for it below.</p>
+        <p><strong>jfx-binding</strong> library contains some useful classes for enhanced JavaFX property binding.</p>
 
-<script type="text/javascript">
-  var GOOG_FIXURL_LANG = 'en';
-  var GOOG_FIXURL_SITE = 'http://localhost:4000'
-</script>
+<h2 id="usage">Usage</h2>
 
-<script type="text/javascript" src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
-</script>
+<ul>
+  <li>Import the library into your Maven project:</li>
+</ul>
 
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.dejv78.commons.jfx&lt;/groupId&gt;
+    &lt;artifactId&gt;jfx-binding&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="functiondoublebinding">FunctionDoubleBinding</h3>
+
+<p>FunctionDoubleBinding applies the given <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/Function.html">Function</a> on its dependency.
+For example, to bind one property to a sinus of other property value, you can use it like this:</p>
+
+<pre><code class="language-java">
+final DoubleProperty angleRad = new SimpleDoubleProperty(Math.PI);
+final DoubleProperty angleSin = new SimpleDoubleProperty();
+
+// This binds the property sinAngle to angleRad property, 
+// and applies the "sin" function on it's value.
+angleSin.bind(new FunctionDoubleBinding(angleRad, Math::sin));
+
+
+angleSin.get(); //returns 1.0
+
+angleRad.set(0);
+
+sinAngle.get(); //returns 0.0
+
+</code></pre>
+
+<h3 id="reductiondoublebinding">ReductionDoubleBinding</h3>
+
+<p>ReductionDoubleBinding can reduce multiple dependencies into single value, using associative <a href="https://docs.oracle.com/javase/8/docs/api/java/util/function/BinaryOperator.html">BinaryOperator</a>. 
+It is well suited for those use cases, where the number of dependencies varies over time, as they can be added and removed “on the fly” easily.</p>
+
+<pre><code class="language-java">// First, lets declare some properties for later:
+final DoubleProperty property1 = new SimpleDoubleProperty(50.d);
+final DoubleProperty property2 = new SimpleDoubleProperty(20.d);
+final DoubleProperty property3 = new SimpleDoubleProperty(10.d);
+
+final DoubleProperty result = new SimpleDoubleProperty();
+</code></pre>
+
+<pre><code class="language-java">// It is possible to start with no dependecies at all ... :
+final ReductionDoubleBinding reductionBinding =  
+        new ReductionDoubleBinding(Math::min);
+
+result.bind(reductionBinding);
+
+result.get(); // Returns Double.NaN by default
+
+// ... and add the dependencies later:
+
+reductionBinding.add(property1); // Result is 50.0 now ...
+
+reductionBinding.add(property2); // ... and now it's 20.0
+</code></pre>
+
+<pre><code class="language-java">// Or we can start already with as many dependecies, as we want:
+final ReductionDoubleBinding reductionBinding =  
+        new ReductionDoubleBinding(Math::min, property1, property2, property3);
+
+result.bind(reductionBinding); // Now the result is 10.0
+</code></pre>
+
+<pre><code class="language-java">// Optionally, if we want to specify the default value ourselves, we can 
+// do that also:
+final ReductionDoubleBinding reductionBinding =  
+        new ReductionDoubleBinding(Math::min)
+        .withDefault(150.d);
+
+result.bind(reductionBinding); // The binding is still "empty" like in 
+                               // the first case, but the result is now 150.0
+                               // instead of Double.NaN
+</code></pre>
+
+<pre><code class="language-java">// Dependencies can be removed with "remove":
+
+reductionBinding.remove(property2); // back at 50.0
+
+// ... or dumped completely with "clear":
+
+reductionBinding.clear();
+
+result.get(); // Now it returns "default value" again.
+</code></pre>
+
+<h2 id="api-documentation">API Documentation</h2>
+<p>Browse the API documentation: <a href="/apidocs/config/index.html">here</a>.
+Download the API documentation: <a href="">here</a>.</p>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

@@ -2,13 +2,13 @@
 <feed xmlns="http://www.w3.org/2005/Atom" xml:lang="en">
 <title type="text">commons</title>
 <generator uri="https://github.com/jekyll/jekyll">Jekyll</generator>
-<link rel="self" type="application/atom+xml" href="https://dejv78.github.io/commons/feed.xml" />
-<link rel="alternate" type="text/html" href="https://dejv78.github.io/commons" />
-<updated>2015-03-09T14:56:20+01:00</updated>
-<id>https://dejv78.github.io/commons/</id>
+<link rel="self" type="application/atom+xml" href="http://localhost:4000/feed.xml" />
+<link rel="alternate" type="text/html" href="http://localhost:4000" />
+<updated>2015-03-27T17:43:24+01:00</updated>
+<id>http://localhost:4000/</id>
 <author>
   <name>dejv</name>
-  <uri>https://dejv78.github.io/commons/</uri>
+  <uri>http://localhost:4000/</uri>
   <email>dejv78@gmail.com</email>
 </author>
 
@@ -17,13 +17,13 @@
 
 <entry>
   <title type="html"><![CDATA[Version 1.0.1 released!]]></title>
-  <link rel="alternate" type="text/html" href="https://dejv78.github.io/commons/news/version-1-0-1-released/" />
-  <id>https://dejv78.github.io/commons/news/version-1-0-1-released</id>
+  <link rel="alternate" type="text/html" href="http://localhost:4000/news/version-1-0-1-released/" />
+  <id>http://localhost:4000/news/version-1-0-1-released</id>
   <published>2015-02-27T11:24:34+01:00</published>
   <updated>2015-02-27T11:24:34+01:00</updated>
   <author>
     <name>dejv</name>
-    <uri>https://dejv78.github.io/commons</uri>
+    <uri>http://localhost:4000</uri>
     <email>dejv78@gmail.com</email>
   </author>
   <content type="html">
@@ -39,7 +39,7 @@
 &lt;p&gt;See &lt;a href=&quot;http://dejv78.github.io/news/commons-version-1.0.1-released/&quot;&gt;this article&lt;/a&gt; for more details.&lt;/p&gt;
 
 
-    &lt;p&gt;&lt;a href=&quot;https://dejv78.github.io/commons/news/version-1-0-1-released/&quot;&gt;Version 1.0.1 released!&lt;/a&gt; was originally published by dejv at &lt;a href=&quot;https://dejv78.github.io/commons&quot;&gt;commons&lt;/a&gt; on February 27, 2015.&lt;/p&gt;
+    &lt;p&gt;&lt;a href=&quot;http://localhost:4000/news/version-1-0-1-released/&quot;&gt;Version 1.0.1 released!&lt;/a&gt; was originally published by dejv at &lt;a href=&quot;http://localhost:4000&quot;&gt;commons&lt;/a&gt; on February 27, 2015.&lt;/p&gt;
   </content>
 </entry>
 

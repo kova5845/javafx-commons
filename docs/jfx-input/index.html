@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Page Not Found &#8211; commons</title>
-
+<title>jfx-input &#8211; commons</title>
+<meta name="description" content="Project documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Page Not Found">
-
+<meta name="twitter:title" content="jfx-input">
+<meta name="twitter:description" content="Project documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Page Not Found">
-
-<meta property="og:url" content="http://localhost:4000/404.html">
+<meta property="og:title" content="jfx-input">
+<meta property="og:description" content="Project documentation.">
+<meta property="og:url" content="http://localhost:4000/docs/jfx-input/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/404.html">
+<link rel="canonical" href="http://localhost:4000/docs/jfx-input/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,20 +136,88 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Page Not Found</h1>
+          <h1 class="entry-title"/>jfx-input</h1>
           <hr />
         </div>
       <div class="entry-content">
-        <p>Sorry, but the page you were trying to view does not exist — perhaps you can try searching for it below.</p>
+        <p><strong>jfx-input</strong> library contains code primarily intended to standardize and simplify the handling of user input in JavaFX applications. It also offers possibilities to persist the configuration of user interactions with the help of the <a href="../config/">config</a> module.
+So far it concentrates mainly on the support of dragging and scrolling events.
+Support for keyboard shortcuts etc. will be added in future, as required.</p>
 
-<script type="text/javascript">
-  var GOOG_FIXURL_LANG = 'en';
-  var GOOG_FIXURL_SITE = 'http://localhost:4000'
-</script>
+<h2 id="general-concept">General concept</h2>
 
-<script type="text/javascript" src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
-</script>
+<p>The functionality of <strong>jfx-input</strong> splits into properties of a specific event, required for the input action to trigger, and high-level handlers, designed to let the application react on the user input matching those specified conditions, without the need to duplicate all the related boiler plate.</p>
 
+<h3 id="event-properties">Event properties</h3>
+
+<p>Properties of a specific event are created with an appropriate combination of Event Configuration data (represented by the relevant combination of mouse buttons and modifier keys (such as Shift, or Ctrl)), and describe the complete setup of a single input event.</p>
+
+<p>The relevant classes were also designed to be used within application configuration mechanism, for easy persistence of the user input preferences.</p>
+
+<h2 id="event-handlers">Event handlers</h2>
+
+<p>Event handlers encapsulate all the lower-level stuff required to subscribe for a specified event type, and for filtering out all the faux-events (those, that don’t match the specified properties).</p>
+
+<p>When the specific user interaction passes the filter, it is then handed over to the application for further processing.</p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li>Import the library into your Maven project:</li>
+</ul>
+
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.dejv78.commons.jfx&lt;/groupId&gt;
+    &lt;artifactId&gt;jfx-input&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<h3 id="subscribing-for-the-mouse-drag-event">Subscribing for the mouse drag event</h3>
+
+<p>The handler is created with a defined set of properties, and registered using the <em>register(Node node)</em> method.</p>
+
+<pre><code class="language-java">// Lets assume, we have a node, that we want to handle the "drag" event on:
+final Node node;
+
+// ...and that we want the event to only trigger, if the primary mouse button
+// was pressed together with &lt;Alt&gt; and &lt;Shift&gt; keys:
+
+final MouseEventProperties dragProperties 
+    = new MouseEventProperties(
+           new MouseModifiers().withAlt().withShift(), 
+           new MouseButtons().withPrimary());
+
+// We can then handle the complete "drag" session with a single command:
+DragActionHandler.with(dragProperties) 
+    .doOnDragStart((event) -&gt; /* handle drag start */)
+    .doOnDrag((event) -&gt; /* handle drag */)
+    .doOnDragFinish((event) -&gt; /* handle drag finish */)
+    .register(node); // This will register it on the node
+</code></pre>
+
+<h3 id="subscribing-for-the-scroll-event">Subscribing for the scroll event</h3>
+
+<p>The logic is very similar, but the properties are defined in class “GestureEventProperties”, instead of “MouseEventProperties”. For gesture events, there are no mouse buttons, and also the “Shortcut” key modifier is not available in JavaFX backend.</p>
+
+<pre><code class="language-java">
+// This time we want to respond to scrolling actions performed with &lt;Ctrl&gt; key:
+final GestureEventProperties scrollProperties 
+    = new GestureEventProperties(new GestureModifiers().withControl());
+
+// The subscription then goes like this:
+ScrollActionHandler.with(scrollProperties) 
+    .doOnScroll((event) -&gt; /* handle the scroll */)
+    .register(node); 
+</code></pre>
+
+<h3 id="unsubscribing-from-the-events">Unsubscribing from the events</h3>
+
+<p>To unsubscribe from receiving the event further on, there is (of course) the <em>unregister(Node node)</em> method available.</p>
+
+<h2 id="api-documentation">API Documentation</h2>
+<p>Browse the API documentation: <a href="/apidocs/jfx-input/index.html">here</a>.
+Download the API documentation: <a href="">here</a>.</p>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

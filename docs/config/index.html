@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Page Not Found &#8211; commons</title>
-
+<title>config &#8211; commons</title>
+<meta name="description" content="Project documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Page Not Found">
-
+<meta name="twitter:title" content="config">
+<meta name="twitter:description" content="Project documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Page Not Found">
-
-<meta property="og:url" content="http://localhost:4000/404.html">
+<meta property="og:title" content="config">
+<meta property="og:description" content="Project documentation.">
+<meta property="og:url" content="http://localhost:4000/docs/config/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="http://localhost:4000/404.html">
+<link rel="canonical" href="http://localhost:4000/docs/config/">
 <link href="http://localhost:4000/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,20 +136,73 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Page Not Found</h1>
+          <h1 class="entry-title"/>config</h1>
           <hr />
         </div>
       <div class="entry-content">
-        <p>Sorry, but the page you were trying to view does not exist — perhaps you can try searching for it below.</p>
+        <p>The purpose of <strong>config</strong> and <strong>config-json</strong> libraries is to provide an easy to use solution for application configuration persistence.</p>
 
-<script type="text/javascript">
-  var GOOG_FIXURL_LANG = 'en';
-  var GOOG_FIXURL_SITE = 'http://localhost:4000'
-</script>
+<h2 id="usage">Usage</h2>
 
-<script type="text/javascript" src="//linkhelp.clients.google.com/tbproxy/lh/wm/fixurl.js">
-</script>
+<ul>
+  <li>Import the libraries into your Maven project:</li>
+</ul>
 
+<pre><code class="language-xml">&lt;dependency&gt;
+    &lt;groupId&gt;com.github.dejv78.commons.config&lt;/groupId&gt;
+    &lt;artifactId&gt;config&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+
+&lt;dependency&gt;
+    &lt;groupId&gt;com.github.dejv78.commons.config&lt;/groupId&gt;
+    &lt;artifactId&gt;config-json&lt;/artifactId&gt;
+    &lt;version&gt;1.1.0&lt;/version&gt;
+&lt;/dependency&gt;
+</code></pre>
+
+<ul>
+  <li>Code sample:</li>
+</ul>
+
+<pre><code class="language-java">try {
+	// Initialize the JSON backend to act as the config provider:
+	final ConfigProvider configProvider = JSONConfigProvider(Paths.get("config.json"));
+	
+	// Load the configuration from the file: 
+	final MyAppConfig configuration = configProvider.load(MyAppConfig.class);
+
+	// Save the configuration into the file: 
+	configProvider.store(configuration);
+}
+catch (ConfigException e) {
+	// ConfigException gets thrown: 
+	//
+	// During construction of the config provider:
+	//   - When it is not possible to create or open the file on the given path.
+	//
+	// During configuration load:
+	// - When it is not possible to map the contents of the JSON file to the object.
+	//
+	// During configuration store:
+	// - When it is not possible to map the object to the JSON format.
+}
+</code></pre>
+
+<h2 id="api-documentation">API Documentation</h2>
+<p>Browse the API documentation:</p>
+
+<ul>
+  <li>For <strong>config</strong>: <a href="/apidocs/config/index.html">here</a>.</li>
+  <li>For <strong>config-json</strong>: <a href="/apidocs/config-json/index.html">here</a>.</li>
+</ul>
+
+<p>Download the API documentation:</p>
+
+<ul>
+  <li>For <strong>config</strong>: <a href="">here</a>.</li>
+  <li>For <strong>config-json</strong>: <a href="">here</a>.</li>
+</ul>
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->
