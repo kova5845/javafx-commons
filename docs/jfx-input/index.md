@@ -72,7 +72,7 @@ DragActionHandler.with(dragProperties)
 
 The logic is very similar, but the properties are defined in class "GestureEventProperties", instead of "MouseEventProperties". For gesture events, there are no mouse buttons, and also the "Shortcut" key modifier is not available in JavaFX backend.
 
-``` java
+```java
 
 // This time we want to respond to scrolling actions performed with <Ctrl> key:
 final GestureEventProperties scrollProperties 
