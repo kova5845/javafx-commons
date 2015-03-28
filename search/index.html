@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Recent news &#8211; commons</title>
-<meta name="description" content="New and noteworty">
+<title>Search &#8211; commons</title>
+
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Recent news">
-<meta name="twitter:description" content="New and noteworty">
+<meta name="twitter:title" content="Search">
+
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent news">
-<meta property="og:description" content="New and noteworty">
-<meta property="og:url" content="https://dejv78.github.io/commons/">
+<meta property="og:title" content="Search">
+
+<meta property="og:url" content="https://dejv78.github.io/commons/search/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="https://dejv78.github.io/commons/">
+<link rel="canonical" href="https://dejv78.github.io/commons/search/">
 <link href="https://dejv78.github.io/commons/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,15 +136,30 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Recent news</h1>
+          <h1 class="entry-title"/>Search</h1>
           <hr />
         </div>
       <div class="entry-content">
-        <ul class="post-list">
- 
-  <li><article><a href="https://dejv78.github.io/commons/news/version-1-0-1-released/">Version 1.0.1 released! <span class="entry-date"><time datetime="2015-02-27T11:24:34+01:00">February 27, 2015</time></span></a></article></li>
+        <!-- Search form -->
+<form method="get" action="https://dejv78.github.io/commons/search/" data-search-form="" class="simple-search">
+  <label for="q">Search commons for:</label>
+  <input type="search" name="q" id="goog-wm-qt" placeholder="What are you looking for?" data-search-input="" autofocus="" />
+  <input type="submit" value="Search" id="goog-wm-sb" />
+</form>
 
-</ul>
+<!-- Search results placeholder -->
+<h6 data-search-found="">
+  <span data-search-found-count=""></span> result(s) found for &ldquo;<span data-search-found-term=""></span>&rdquo;.
+</h6>
+<ul class="post-list" data-search-results=""></ul>
+
+<!-- Search result template -->
+<script type="text/x-template" id="search-result">
+  <li><article>
+    <a href="##Url##">##Title## <span class="excerpt">##Excerpt##</span></a>
+  </article></li>
+</script>
+
 
       </div><!-- /.entry-content -->
     </div><!-- /.entry-wrapper -->

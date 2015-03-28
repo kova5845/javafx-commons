@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Recent news &#8211; commons</title>
-<meta name="description" content="New and noteworty">
+<title>Documentation: jfx-geometry &#8211; commons</title>
+<meta name="description" content="jfx-geometry documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Recent news">
-<meta name="twitter:description" content="New and noteworty">
+<meta name="twitter:title" content="Documentation: jfx-geometry">
+<meta name="twitter:description" content="jfx-geometry documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent news">
-<meta property="og:description" content="New and noteworty">
-<meta property="og:url" content="https://dejv78.github.io/commons/">
+<meta property="og:title" content="Documentation: jfx-geometry">
+<meta property="og:description" content="jfx-geometry documentation.">
+<meta property="og:url" content="https://dejv78.github.io/commons/docs/jfx-geometry/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="https://dejv78.github.io/commons/">
+<link rel="canonical" href="https://dejv78.github.io/commons/docs/jfx-geometry/">
 <link href="https://dejv78.github.io/commons/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,14 +136,54 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Recent news</h1>
+          <h1 class="entry-title"/>Documentation</h1>
           <hr />
+          <table>
+            <tr>
+              <td width="25%" align="center"><p><a href="../config/">config</a></p></td>
+              <td width="25%" align="center"><p><a href="../jfx-binding/">jfx-binding</a></p></td>
+              <td width="25%" align="center"><p class="emphasized">jfx-geometry</p></td>
+              <td width="25%" align="center"><p><a href="../jfx-input/">jfx-input</a></p></td>
+            </tr>
+          </table>
         </div>
       <div class="entry-content">
-        <ul class="post-list">
- 
-  <li><article><a href="https://dejv78.github.io/commons/news/version-1-0-1-released/">Version 1.0.1 released! <span class="entry-date"><time datetime="2015-02-27T11:24:34+01:00">February 27, 2015</time></span></a></article></li>
+        <p><strong>jfx-geometry</strong> library contains (as the name implies) some geometry-related classes for JavaFX. In this version, most of the included classes are just a counterparts to standard JavaFX classes, with improved observability. </p>
 
+<p>This, however, is not true about CompositeObservableBounds class, which provide a dynamic union of multiple JavaFX bounds (can be useful ie. for multiple selection bounding boxes).</p>
+
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li>Import the library into your Maven project:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.github.dejv78.commons.jfx<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>jfx-geometry<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></div>
+
+<h3 id="observablepoint2d">ObservablePoint2D</h3>
+
+<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html">Point2D</a> with observable “x” and “y” properties.</p>
+
+<h3 id="observabledimension2d">ObservableDimension2D</h3>
+
+<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Dimension2D.html">Dimension2D</a> with observable “width” and “height” properties.</p>
+
+<h3 id="observablebounds">ObservableBounds</h3>
+
+<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Bounds.html">Point2D</a> with observable “min[x/y/z]”, “center[x/y/z]” “max[x/y/z]” properties.</p>
+
+<h3 id="compositeobservablebounds">CompositeObservableBounds</h3>
+
+<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html">Point2D</a> with observable “x” and “y” properties.</p>
+
+<h2 id="api-documentation">API Documentation</h2>
+<ul>
+  <li>Browse the API documentation: <a href="/apidocs/jfx-geometry/index.html">here</a>.</li>
+  <li>Download the API documentation: <a href="">here</a>.</li>
 </ul>
 
       </div><!-- /.entry-content -->

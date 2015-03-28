@@ -5,15 +5,15 @@
 <!--[if gt IE 8]><!--> <html class="no-js" lang="en"><!--<![endif]-->
 <head>
 <meta charset="utf-8">
-<title>Recent news &#8211; commons</title>
-<meta name="description" content="New and noteworty">
+<title>Documentation: config &#8211; commons</title>
+<meta name="description" content="config documentation.">
 
 
 
 
 <!-- Twitter Cards -->
-<meta name="twitter:title" content="Recent news">
-<meta name="twitter:description" content="New and noteworty">
+<meta name="twitter:title" content="Documentation: config">
+<meta name="twitter:description" content="config documentation.">
 <meta name="twitter:site" content="@dejv78cz">
 <meta name="twitter:creator" content="@dejv78cz">
 
@@ -23,16 +23,16 @@
 <!-- Open Graph -->
 <meta property="og:locale" content="en_US">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Recent news">
-<meta property="og:description" content="New and noteworty">
-<meta property="og:url" content="https://dejv78.github.io/commons/">
+<meta property="og:title" content="Documentation: config">
+<meta property="og:description" content="config documentation.">
+<meta property="og:url" content="https://dejv78.github.io/commons/docs/config/">
 <meta property="og:site_name" content="commons">
 
 
 
 
 
-<link rel="canonical" href="https://dejv78.github.io/commons/">
+<link rel="canonical" href="https://dejv78.github.io/commons/docs/config/">
 <link href="https://dejv78.github.io/commons/feed.xml" type="application/atom+xml" rel="alternate" title="commons Feed">
 
 <!-- http://t.co/dKP3o1e -->
@@ -136,14 +136,78 @@
     
     <div class="entry-wrapper">
        <div class="divider">
-          <h1 class="entry-title"/>Recent news</h1>
+          <h1 class="entry-title"/>Documentation</h1>
           <hr />
+          <table>
+            <tr>
+              <td width="25%" align="center"><p class="emphasized">config</p></td>
+              <td width="25%" align="center"><p><a href="../jfx-binding/">jfx-binding</a></p></td>
+              <td width="25%" align="center"><p><a href="../jfx-geometry/">jfx-geometry</a></p></td>
+              <td width="25%" align="center"><p><a href="../jfx-input/">jfx-input</a></p></td>
+            </tr>
+          </table>
         </div>
       <div class="entry-content">
-        <ul class="post-list">
- 
-  <li><article><a href="https://dejv78.github.io/commons/news/version-1-0-1-released/">Version 1.0.1 released! <span class="entry-date"><time datetime="2015-02-27T11:24:34+01:00">February 27, 2015</time></span></a></article></li>
+        <p>The purpose of <strong>config</strong> and <strong>config-json</strong> libraries is to provide an easy to use solution for application configuration persistence.</p>
 
+<h2 id="usage">Usage</h2>
+
+<ul>
+  <li>Import the libraries into your Maven project:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-xml" data-lang="xml"><span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.github.dejv78.commons.config<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>config<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span>
+
+<span class="nt">&lt;dependency&gt;</span>
+    <span class="nt">&lt;groupId&gt;</span>com.github.dejv78.commons.config<span class="nt">&lt;/groupId&gt;</span>
+    <span class="nt">&lt;artifactId&gt;</span>config-json<span class="nt">&lt;/artifactId&gt;</span>
+    <span class="nt">&lt;version&gt;</span>1.1.0<span class="nt">&lt;/version&gt;</span>
+<span class="nt">&lt;/dependency&gt;</span></code></pre></div>
+
+<ul>
+  <li>Code sample:</li>
+</ul>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="k">try</span> <span class="o">{</span>
+	<span class="c1">// Initialize the JSON backend to act as the config provider:</span>
+	<span class="kd">final</span> <span class="n">ConfigProvider</span> <span class="n">configProvider</span> <span class="o">=</span> <span class="n">JSONConfigProvider</span><span class="o">(</span><span class="n">Paths</span><span class="o">.</span><span class="na">get</span><span class="o">(</span><span class="s">&quot;config&quot;</span><span class="o">,</span> <span class="s">&quot;config.json&quot;</span><span class="o">));</span>
+	
+	<span class="c1">// Load the configuration from the file: </span>
+	<span class="kd">final</span> <span class="n">MyAppConfig</span> <span class="n">configuration</span> <span class="o">=</span> <span class="n">configProvider</span><span class="o">.</span><span class="na">load</span><span class="o">(</span><span class="n">MyAppConfig</span><span class="o">.</span><span class="na">class</span><span class="o">);</span>
+
+	<span class="c1">// Save the configuration into the file: </span>
+	<span class="n">configProvider</span><span class="o">.</span><span class="na">store</span><span class="o">(</span><span class="n">configuration</span><span class="o">);</span>
+<span class="o">}</span>
+<span class="k">catch</span> <span class="o">(</span><span class="n">ConfigException</span> <span class="n">e</span><span class="o">)</span> <span class="o">{</span>
+	<span class="c1">// ConfigException gets thrown: </span>
+	<span class="c1">//</span>
+	<span class="c1">// During construction of the config provider:</span>
+	<span class="c1">//   - When it is not possible to create or open the file on the given path.</span>
+	<span class="c1">//</span>
+	<span class="c1">// During configuration load:</span>
+	<span class="c1">// - When it is not possible to map the contents of the JSON file to the object.</span>
+	<span class="c1">//</span>
+	<span class="c1">// During configuration store:</span>
+	<span class="c1">// - When it is not possible to map the object to the JSON format.</span>
+<span class="o">}</span></code></pre></div>
+
+<h2 id="api-documentation">API Documentation</h2>
+<p>Browse the API documentation:</p>
+
+<ul>
+  <li>For <strong>config</strong>: <a href="/apidocs/config/index.html">here</a>.</li>
+  <li>For <strong>config-json</strong>: <a href="/apidocs/config-json/index.html">here</a>.</li>
+</ul>
+
+<p>Download the API documentation:</p>
+
+<ul>
+  <li>For <strong>config</strong>: <a href="">here</a>.</li>
+  <li>For <strong>config-json</strong>: <a href="">here</a>.</li>
 </ul>
 
       </div><!-- /.entry-content -->
