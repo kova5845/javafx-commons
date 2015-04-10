@@ -174,11 +174,36 @@
 
 <h3 id="observablebounds">ObservableBounds</h3>
 
-<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Bounds.html">Point2D</a> with observable “min[x/y/z]”, “center[x/y/z]” “max[x/y/z]” properties.</p>
+<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Bounds.html">Bounds</a> with observable “min[X/Y/Z]”, “center[X/Y/Z]” “max[X/Y/Z]” properties.</p>
 
 <h3 id="compositeobservablebounds">CompositeObservableBounds</h3>
 
-<p>A mutable counterpart to JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Point2D.html">Point2D</a> with observable “x” and “y” properties.</p>
+<p>An observable aggregator of multiple JavaFX <a href="http://docs.oracle.com/javase/8/javafx/api/javafx/geometry/Bounds.html">Bounds</a></p>
+
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Lets assume, we have some nodes, that we want to &quot;select&quot; on the screen</span>
+<span class="c1">// (Frame them with a selection bounding box) </span>
+
+<span class="kd">private</span> <span class="n">Node</span> <span class="n">node1</span><span class="o">;</span>
+<span class="kd">private</span> <span class="n">Node</span> <span class="n">node2</span><span class="o">;</span>
+
+<span class="kd">private</span> <span class="n">CompositeObservableBounds</span> <span class="n">selectionBounds</span> 
+    <span class="o">=</span> <span class="k">new</span> <span class="nf">CompositeObservableBounds</span><span class="o">();</span>
+
+<span class="c1">// We can include them to the selection like this:</span>
+<span class="c1">// (We can do that for example in reaction to mouse press)</span>
+<span class="n">selectionBounds</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node1</span><span class="o">.</span><span class="na">boundsInParentProperty</span><span class="o">());</span>
+<span class="n">selectionBounds</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">node2</span><span class="o">.</span><span class="na">boundsInParentProperty</span><span class="o">());</span>
+
+<span class="c1">// Then we can simply bind the &quot;selection&quot; rectangle like this:</span>
+<span class="kd">private</span> <span class="n">Rectangle</span> <span class="n">rectangle</span><span class="o">;</span>
+
+<span class="n">rectangle</span><span class="o">.</span><span class="na">xProperty</span><span class="o">().</span><span class="na">bind</span><span class="o">(</span><span class="n">progressBounds</span><span class="o">.</span><span class="na">minXProperty</span><span class="o">());</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="na">yProperty</span><span class="o">().</span><span class="na">bind</span><span class="o">(</span><span class="n">progressBounds</span><span class="o">.</span><span class="na">minYProperty</span><span class="o">());</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="na">widthProperty</span><span class="o">().</span><span class="na">bind</span><span class="o">(</span><span class="n">progressBounds</span><span class="o">.</span><span class="na">widthProperty</span><span class="o">());</span>
+<span class="n">rectangle</span><span class="o">.</span><span class="na">heightProperty</span><span class="o">().</span><span class="na">bind</span><span class="o">(</span><span class="n">progressBounds</span><span class="o">.</span><span class="na">heightProperty</span><span class="o">());</span>
+
+<span class="c1">// ... and it will simply adapt itself to the union of node1 and node2</span>
+<span class="c1">// bounds, whenever anyone of them changes.</span></code></pre></div>
 
 <h2 id="api-documentation">API Documentation</h2>
 <ul>
