@@ -32,6 +32,46 @@ public class GestureModifiers {
 
 
     /**
+     * Creates the new instance of GestureModifiers class with "shift" modifier included.
+     */
+    public static GestureModifiers shift() {
+        return new GestureModifiers().withShift();
+    }
+
+
+    /**
+     * Creates the new instance of GestureModifiers class with "control" modifier included.
+     */
+    public static GestureModifiers control() {
+        return new GestureModifiers().withControl();
+    }
+
+
+    /**
+     * Creates the new instance of GestureModifiers class with "alt" modifier included.
+     */
+    public static GestureModifiers alt() {
+        return new GestureModifiers().withAlt();
+    }
+
+
+    /**
+     * Creates the new instance of GestureModifiers class with "meta" modifier included.
+     */
+    public static GestureModifiers meta() {
+        return new GestureModifiers().withMeta();
+    }
+
+
+    /**
+     * Creates the new instance of GestureModifiers class with "shortcut" modifier included.
+     */
+    public static GestureModifiers shortcut() {
+        return new GestureModifiers().withShortcut();
+    }
+
+
+    /**
      * Informs in shortcut, whether there are no modifiers set.
      *
      * @return True if there are no modifiers set, false otherwise.

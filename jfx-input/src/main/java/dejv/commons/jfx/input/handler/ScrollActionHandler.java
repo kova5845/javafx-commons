@@ -36,13 +36,13 @@ public class ScrollActionHandler
 
 
     /**
-     * Create the handler from given properties.
+     * Create the handler with given properties.
      *
      * @param properties Mouse gesture properties. Must be given.
      * @return New instance of MouseScrollActionHandler, based on given properties.
      * @throws java.lang.NullPointerException when properties parameter is null.
      */
-    public static ScrollActionHandler from(GestureEventProperties properties) {
+    public static ScrollActionHandler with(GestureEventProperties properties) {
         return new ScrollActionHandler(properties);
     }
 

@@ -4,10 +4,10 @@ package dejv.commons.jfx.input;
  * Holder class for modifier-keys combination of the mouse events.
  * <p>
  * <dl><dt>Example:</dt></dl>
- * To instantiate the MouseModifiers class for event, that should trigger with simultaneous press of Alt and Ctrl keys, use:
+ * To instantiate the MouseModifiers class for event, that should trigger with simultaneous press of Ctrl and Alt keys, use:
  * <pre>
  *  <code>
- * new MouseModifiers().withAlt().withControl();
+ * new MouseModifiers().control().withAlt();
  *  </code>
  * </pre>
  *
@@ -27,6 +27,38 @@ public class MouseModifiers {
      */
     public static MouseModifiers none() {
         return new MouseModifiers();
+    }
+
+
+    /**
+     * Creates the new instance of MouseModifiers class with "shift" modifier included.
+     */
+    public static MouseModifiers shift() {
+        return new MouseModifiers().withShift();
+    }
+
+
+    /**
+     * Creates the new instance of MouseModifiers class with "control" modifier included.
+     */
+    public static MouseModifiers control() {
+        return new MouseModifiers().withControl();
+    }
+
+
+    /**
+     * Creates the new instance of MouseModifiers class with "alt" modifier included.
+     */
+    public static MouseModifiers alt() {
+        return new MouseModifiers().withAlt();
+    }
+
+
+    /**
+     * Creates the new instance of MouseModifiers class with "meta" modifier included.
+     */
+    public static MouseModifiers meta() {
+        return new MouseModifiers().withMeta();
     }
 
 

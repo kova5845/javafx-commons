@@ -19,7 +19,7 @@ public class GestureEventProperties {
     /**
      * Construct new instance of GestureEventProperties with given Modifiers.
      *
-     * @param gestureModifiers Valid Modifiers, or null for none required.
+     * @param gestureModifiers Valid Modifiers, or null, if none required.
      */
     public GestureEventProperties(GestureModifiers gestureModifiers) {
         if (gestureModifiers != null) {

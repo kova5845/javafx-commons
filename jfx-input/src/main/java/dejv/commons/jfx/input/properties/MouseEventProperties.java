@@ -21,8 +21,8 @@ public class MouseEventProperties {
     /**
      * Construct new instance of MouseEventProperties with given Modifiers and Buttons.
      *
-     * @param mouseModifiers Valid Modifiers, or null for none required.
-     * @param mouseButtons   Valid Buttons, or null for none required.
+     * @param mouseModifiers Valid Modifiers, or null, if none required.
+     * @param mouseButtons   Valid Buttons, or null, if none required.
      */
     public MouseEventProperties(MouseModifiers mouseModifiers, MouseButtons mouseButtons) {
 

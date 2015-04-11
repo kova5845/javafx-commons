@@ -34,37 +34,34 @@ public class ReductionDoubleBindingTest {
 
     @Test(expected = NullPointerException.class)
     public void createWithNullDependency() {
-        new ReductionDoubleBinding(null, REDUCTION);
+        new ReductionDoubleBinding(REDUCTION, null);
     }
 
 
     @Test(expected = NullPointerException.class)
-    public void createWithNullReduction1() {
-        new ReductionDoubleBinding(DE1, null);
+    public void createWithNullReduction() {
+        new ReductionDoubleBinding(null, DE1);
     }
 
 
-    @Test(expected = NullPointerException.class)
-    public void createWithNullDependency1() {
-        new ReductionDoubleBinding(null, DE2, REDUCTION);
-    }
+    @Test
+    public void createWithDefault() {
+        final double value = 20d;
 
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION).setIdentity(value);
+        assertEquals("Binding value 1", value, cut.get(), Precision.EPSILON);
 
-    @Test(expected = NullPointerException.class)
-    public void createWithNullDependency2() {
-        new ReductionDoubleBinding(DE1, null, REDUCTION);
-    }
+        cut.add(DE1);
+        assertEquals("Binding value 2", REDUCTION.apply(DE1.get(), value), cut.get(), Precision.EPSILON);
 
-
-    @Test(expected = NullPointerException.class)
-    public void createWithNullReduction2() {
-        new ReductionDoubleBinding(DE1, DE2, null);
+        cut.add(DE2);
+        assertEquals("Binding value 3", REDUCTION.apply(REDUCTION.apply(DE1.get(), DE2.get()), value), cut.get(), Precision.EPSILON);
     }
 
 
     @Test
     public void createWithValidParams() {
-        final DoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final DoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
 
         assertEquals("Binding value 1", REDUCTION.apply(DE1.get(), DE2.get()), cut.get(), Precision.EPSILON);
 
@@ -78,7 +75,7 @@ public class ReductionDoubleBindingTest {
 
     @Test(expected = NullPointerException.class)
     public void callAddWithNullDependency() {
-        final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
 
         cut.add(null);
     }
@@ -86,7 +83,7 @@ public class ReductionDoubleBindingTest {
 
     @Test
     public void callAddWithValidDependency() {
-        final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
 
         final DoubleProperty de3 = new SimpleDoubleProperty(30);
         cut.add(de3);
@@ -99,7 +96,7 @@ public class ReductionDoubleBindingTest {
 
     @Test(expected = NullPointerException.class)
     public void callRemoveWithNullDependency() {
-        final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
 
         cut.remove(null);
     }
@@ -107,7 +104,7 @@ public class ReductionDoubleBindingTest {
 
     @Test
     public void callRemoveWithValidDependency() {
-        final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
 
         final DoubleProperty de3 = new SimpleDoubleProperty(-10);
         cut.add(de3);
@@ -122,22 +119,33 @@ public class ReductionDoubleBindingTest {
         assertEquals("Binding value 3", de3.get(), cut.get(), Precision.EPSILON);
 
         cut.remove(de3);
-        assertEquals("Binding value 4", Double.NaN, cut.get(), Precision.EPSILON);
+        assertEquals("Binding value 4", 0d, cut.get(), Precision.EPSILON);
     }
 
 
     @Test
     public void callClear() {
-        final ReductionDoubleBinding cut = new ReductionDoubleBinding(DE1, DE2, REDUCTION);
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION, DE1, DE2);
         final DoubleProperty de3 = new SimpleDoubleProperty(-10);
         cut.add(de3);
 
         cut.clear();
-        assertEquals("Binding value 1", Double.NaN, cut.get(), Precision.EPSILON);
+        assertEquals("Binding value 1", 0d, cut.get(), Precision.EPSILON);
     }
 
+    @Test
+    public void call() {
+        final ReductionDoubleBinding cut = new ReductionDoubleBinding(REDUCTION).setIdentity(150);
+
+        System.out.println("R1 " + cut.get());
+        cut.add(DE1);
+        System.out.println("R2 " + cut.get());
+    }
 
     private static double sum(double d1, double d2) {
         return d1 + d2;
     }
+
+
+
 }

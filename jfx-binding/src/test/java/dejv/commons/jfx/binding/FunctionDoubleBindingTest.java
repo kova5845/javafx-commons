@@ -35,21 +35,21 @@ public class FunctionDoubleBindingTest {
     @Test(expected = NullPointerException.class)
     public void createWithNullExpression() {
 
-        new FunctionDoubleBinding(null, FUNCTION);
+        new FunctionDoubleBinding(FUNCTION, null);
     }
 
 
     @Test(expected = NullPointerException.class)
     public void createWithNullFunction() {
 
-        new FunctionDoubleBinding(EXPRESSION, null);
+        new FunctionDoubleBinding(null, EXPRESSION);
     }
 
 
     @Test
     public void createWithValidParam() {
 
-        final DoubleBinding cut = new FunctionDoubleBinding(EXPRESSION, FUNCTION);
+        final DoubleBinding cut = new FunctionDoubleBinding(FUNCTION, EXPRESSION);
 
         assertEquals("Binding value", FUNCTION.apply(EXPRESSION.get()), cut.get(), Precision.EPSILON);
 

@@ -39,13 +39,13 @@ public class DragActionHandler
 
 
     /**
-     * Create the handler from given properties.
+     * Create the handler with given properties.
      *
      * @param properties Mouse gesture properties. Must be given.
      * @return New instance of DragActionHandler, based on given properties.
      * @throws java.lang.NullPointerException when properties parameter is null.
      */
-    public static DragActionHandler from(MouseEventProperties properties) {
+    public static DragActionHandler with(MouseEventProperties properties) {
 
         return new DragActionHandler(properties);
     }

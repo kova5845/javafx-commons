@@ -5,7 +5,7 @@ package dejv.commons.config;
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
- * @since 1.0.0
+ * @since 1.1.0
  */
 public interface ConfigProvider {
 

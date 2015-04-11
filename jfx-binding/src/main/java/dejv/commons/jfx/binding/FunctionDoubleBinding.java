@@ -5,7 +5,7 @@ import static java.util.Objects.requireNonNull;
 import java.util.function.Function;
 
 import javafx.beans.binding.DoubleBinding;
-import javafx.beans.binding.DoubleExpression;
+import javafx.beans.value.ObservableDoubleValue;
 
 /**
  * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided function (represented by {@link java.util.function.Function}) on its dependencies.
@@ -19,22 +19,27 @@ import javafx.beans.binding.DoubleExpression;
 public class FunctionDoubleBinding
         extends DoubleBinding {
 
-    private final DoubleExpression expression;
+    private final ObservableDoubleValue dependency;
     private final Function<Double, Double> function;
 
 
-    public FunctionDoubleBinding(DoubleExpression expression, Function<Double, Double> function) {
-        requireNonNull(expression, "Parameter 'expression' is null");
+    /**
+     * Create a new instance of FunctionDoubleBinding with a given {@link java.util.function.Function} on a supplied dependency.
+     * @param function Function to modify the dependency value
+     * @param dependency The dependency
+     */
+    public FunctionDoubleBinding(Function<Double, Double> function, ObservableDoubleValue dependency) {
+        requireNonNull(dependency, "Parameter 'dependency' is null");
         requireNonNull(function, "Parameter 'function' is null");
 
-        this.expression = expression;
+        this.dependency = dependency;
         this.function = function;
-        bind(expression);
+        bind(dependency);
     }
 
 
     @Override
     protected double computeValue() {
-        return function.apply(expression.get());
+        return function.apply(dependency.get());
     }
 }

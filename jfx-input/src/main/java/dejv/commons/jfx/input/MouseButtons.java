@@ -29,6 +29,30 @@ public class MouseButtons {
 
 
     /**
+     * Creates the new instance of Buttons class with "primary" button included.
+     */
+    public static MouseButtons primary() {
+        return new MouseButtons().withPrimary();
+    }
+
+
+    /**
+     * Creates the new instance of Buttons class with "middle" button included.
+     */
+    public static MouseButtons middle() {
+        return new MouseButtons().withMiddle();
+    }
+
+
+    /**
+     * Creates the new instance of Buttons class with "secondary" button included.
+     */
+    public static MouseButtons secondary() {
+        return new MouseButtons().withSecondary();
+    }
+
+
+    /**
      * Provides the information, if the Primary mouse button should be down for the related event to trigger.
      *
      * @return True if the Primary mouse button is included, false otherwise.
