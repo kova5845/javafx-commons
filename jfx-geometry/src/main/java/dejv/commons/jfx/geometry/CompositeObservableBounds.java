@@ -39,6 +39,12 @@ public class CompositeObservableBounds
     }
 
 
+    /**
+     * Decides, whether the resulting bounds should be rounded to nearest "integer" values.
+     * (Useful, when sharp visual representation is desired on antialiased canvas)
+     * @param rounded
+     * @return
+     */
     public CompositeObservableBounds setRounded(boolean rounded) {
         LOGGER.trace("setRounded({})", rounded);
 

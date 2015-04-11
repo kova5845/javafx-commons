@@ -15,7 +15,7 @@ import org.slf4j.LoggerFactory;
 /**
  * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided reduction operation (represented by {@link java.util.function.BinaryOperator}) on its dependencies.
  * <p>
- * If there are no dependencies, binding value is equal to 0.0d (this default value can be modified using the {@link #setIdentity(double)} method.)
+ * If there are no dependencies, binding value is equal to 0.0d (this default value can be modified using the {@link #setIdentity(double)} method).
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
@@ -31,7 +31,7 @@ public class ReductionDoubleBinding
 
 
     /**
-     * Create a new instance of ReductionDoubleBonding with a given {@link java.util.function.BinaryOperator} and an optional set of initial dependencies.
+     * Creates a new instance of ReductionDoubleBonding with a given {@link java.util.function.BinaryOperator} and an optional set of initial dependencies.
      * @param binaryOperator The associative accumulation function (see {@link java.util.function.BinaryOperator} for more details)
      * @param dependencies An optional set of dependencies to be initially bound
      */
@@ -50,8 +50,10 @@ public class ReductionDoubleBinding
     /**
      * Modify the identity value of the current binding.
      * <p>
-     * <u>Note:</u> Please keep in mind, that "identity" value always affects the result, for example, if the dependencies are "a" and "b",
-     * given BinaryOperator is sum(a, b), and the identity is set to "c", then the result will be "a+b+c"! (Standard behavior of {@link java.util.stream.Stream#reduce(BinaryOperator)}).
+     * <u>Note:</u>
+     * Please keep in mind, that "identity" value always affects the result.
+     * For example, if the dependencies are "a" and "b", given BinaryOperator is sum(a, b), and the identity is set to "c",
+     * then the result will be "a+b+c"! (Standard behavior of {@link java.util.stream.Stream#reduce(BinaryOperator)}).
      * @param identity New identity value
      * @return The current binding with updated identity value
      */

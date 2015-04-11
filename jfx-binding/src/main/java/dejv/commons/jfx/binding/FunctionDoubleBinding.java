@@ -8,9 +8,7 @@ import javafx.beans.binding.DoubleBinding;
 import javafx.beans.value.ObservableDoubleValue;
 
 /**
- * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided function (represented by {@link java.util.function.Function}) on its dependencies.
- * <p>
- * If there are no dependencies, binding value is equal to Double.NaN
+ * A variant of {@link javafx.beans.binding.DoubleBinding}, that applies provided function (represented by {@link java.util.function.Function}) on a supplied dependency.
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
@@ -24,7 +22,7 @@ public class FunctionDoubleBinding
 
 
     /**
-     * Create a new instance of FunctionDoubleBinding with a given {@link java.util.function.Function} on a supplied dependency.
+     * Creates a new instance of FunctionDoubleBinding with a given {@link java.util.function.Function} on a supplied dependency.
      * @param function Function to modify the dependency value
      * @param dependency The dependency
      */
