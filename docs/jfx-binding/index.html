@@ -172,7 +172,7 @@ For example, to bind one property to a sinus of other property value, you can us
 
 <span class="c1">// This binds the property sinAngle to angleRad property, </span>
 <span class="c1">// and applies the &quot;sin&quot; function on it&#39;s value.</span>
-<span class="n">angleSin</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">new</span> <span class="nf">FunctionDoubleBinding</span><span class="o">(</span><span class="n">angleRad</span><span class="o">,</span> <span class="nl">Math:</span><span class="o">:</span><span class="n">sin</span><span class="o">));</span>
+<span class="n">angleSin</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="k">new</span> <span class="nf">FunctionDoubleBinding</span><span class="o">(</span><span class="nl">Math:</span><span class="o">:</span><span class="n">sin</span><span class="o">,</span> <span class="n">angleRad</span><span class="o">));</span>
 
 
 <span class="n">angleSin</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="c1">//returns 1.0</span>
@@ -199,7 +199,7 @@ It is well suited for those use cases, where the number of dependencies varies o
 
 <span class="n">result</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">reductionBinding</span><span class="o">);</span>
 
-<span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="c1">// Returns Double.NaN by default</span>
+<span class="n">result</span><span class="o">.</span><span class="na">get</span><span class="o">();</span> <span class="c1">// Returns 0.0 by default</span>
 
 <span class="c1">// ... and add the dependencies later:</span>
 
@@ -213,15 +213,19 @@ It is well suited for those use cases, where the number of dependencies varies o
 
 <span class="n">result</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">reductionBinding</span><span class="o">);</span> <span class="c1">// Now the result is 10.0</span></code></pre></div>
 
-<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Optionally, if we want to specify the default value ourselves, we can </span>
+<div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Optionally, if we want to specify the &quot;identity&quot; value ourselves, we can </span>
 <span class="c1">// do that also:</span>
 <span class="kd">final</span> <span class="n">ReductionDoubleBinding</span> <span class="n">reductionBinding</span> <span class="o">=</span>  
-        <span class="k">new</span> <span class="nf">ReductionDoubleBinding</span><span class="o">(</span><span class="nl">Math:</span><span class="o">:</span><span class="n">min</span><span class="o">)</span>
-        <span class="o">.</span><span class="na">withDefault</span><span class="o">(</span><span class="mi">150</span><span class="o">.</span><span class="na">d</span><span class="o">);</span>
+        <span class="k">new</span> <span class="nf">ReductionDoubleBinding</span><span class="o">(</span><span class="nl">Math:</span><span class="o">:</span><span class="n">max</span><span class="o">)</span>
+        <span class="o">.</span><span class="na">withIdentity</span><span class="o">(</span><span class="mi">150</span><span class="o">.</span><span class="na">d</span><span class="o">);</span>
 
 <span class="n">result</span><span class="o">.</span><span class="na">bind</span><span class="o">(</span><span class="n">reductionBinding</span><span class="o">);</span> <span class="c1">// The binding is still &quot;empty&quot; like in </span>
                                <span class="c1">// the first case, but the result is now 150.0</span>
-                               <span class="c1">// instead of Double.NaN</span></code></pre></div>
+                               <span class="c1">// instead of 0.0</span>
+
+<span class="n">reductionBinding</span><span class="o">.</span><span class="na">add</span><span class="o">(</span><span class="n">property1</span><span class="o">);</span> <span class="c1">// Result is still 150.0, because </span>
+                                 <span class="c1">// the identity&quot; value is still there, and it</span>
+                                 <span class="c1">// is greater than the value of property1</span></code></pre></div>
 
 <div class="highlight"><pre><code class="language-java" data-lang="java"><span class="c1">// Dependencies can be removed with &quot;remove&quot;:</span>
 
@@ -235,7 +239,7 @@ It is well suited for those use cases, where the number of dependencies varies o
 
 <h2 id="api-documentation">API Documentation</h2>
 <ul>
-  <li>Browse the API documentation: <a href="/apidocs/config/index.html">here</a>.</li>
+  <li>Browse the API documentation: <a href="/apidocs/jfx-binding/index.html">here</a>.</li>
   <li>Download the API documentation: <a href="">here</a>.</li>
 </ul>
 
