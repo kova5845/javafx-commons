@@ -37,8 +37,8 @@
     </properties>
 
     <scm>
-        <developerConnection>scm:git:git@github.com:dejv78/jfx.commons.git</developerConnection>
-        <url>https://github.com/dejv78/jfx.commons</url>
+        <developerConnection>scm:git:git@github.com:dejv78/commons.git</developerConnection>
+        <url>https://github.com/dejv78/commons</url>
         <tag>HEAD</tag>
     </scm>
 
@@ -166,7 +166,7 @@
     <distributionManagement>
         <repository>
             <id>bintray</id>
-            <url>https://api.bintray.com/maven/dejv78/maven/jfx.commons</url>
+            <url>https://api.bintray.com/maven/dejv78/maven/commons</url>
         </repository>
     </distributionManagement>
 

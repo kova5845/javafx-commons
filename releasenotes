@@ -2,6 +2,9 @@
 
 ## Version 1.1.0
 
+### config & config-json
+* Added
+
 ### jfx-binding
 * Classes from *dejv.jfx.commons.binding* package were extracted to standalone jfx-binding library
 * Package name has been changed to: *dejv.commons.jfx.binding*
@@ -12,6 +15,7 @@
 * Updated **ObservableBounds** - Min and Max properties are no longer read-only.
 
 ### jfx-input
+* Added
 
 #### package dejv.jfx.commons.input
 
