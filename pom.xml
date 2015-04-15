@@ -1,17 +1,36 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-
-    <name>dejv78 :: Commons</name>
-    <description>Bits of generally handy, mostly (but not exclusively) JavaFX related code.</description>
-    <url>http://dejv78.github.io/commons/</url>
-
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.dejv78.commons</groupId>
     <artifactId>pom</artifactId>
     <version>1.1.1-SNAPSHOT</version>
-
     <packaging>pom</packaging>
+
+    <name>dejv78 :: Commons</name>
+    <description>Bits of generally handy, mostly (but not exclusively) JavaFX related code.</description>
+    <url>http://dejv78.github.io/commons/</url>
+
+    <licenses>
+        <license>
+            <name>MIT License</name>
+            <url>http://www.opensource.org/licenses/mit-license.php</url>
+        </license>
+    </licenses>
+
+    <developers>
+        <developer>
+            <name>dejv78</name>
+            <email>dejv78@gmail.com</email>
+        </developer>
+    </developers>
+
+    <scm>
+        <connection>scm:git:git@github.com:dejv78/commons.git</connection>
+        <developerConnection>scm:git:git@github.com:dejv78/commons.git</developerConnection>
+        <url>https://github.com/dejv78/commons</url>
+        <tag>HEAD</tag>
+    </scm>
 
     <modules>
         <module>config</module>
@@ -37,27 +56,6 @@
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
-
-    <scm>
-        <connection>scm:git:git@github.com:dejv78/commons.git</connection>
-        <developerConnection>scm:git:git@github.com:dejv78/commons.git</developerConnection>
-        <url>https://github.com/dejv78/commons</url>
-      <tag>HEAD</tag>
-  </scm>
-
-    <licenses>
-        <license>
-            <name>MIT License</name>
-            <url>http://www.opensource.org/licenses/mit-license.php</url>
-        </license>
-    </licenses>
-
-    <developers>
-        <developer>
-            <name>dejv78</name>
-            <email>dejv78@gmail.com</email>
-        </developer>
-    </developers>
 
     <dependencyManagement>
         <dependencies>

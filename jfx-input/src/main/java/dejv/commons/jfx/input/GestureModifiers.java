@@ -2,7 +2,6 @@ package dejv.commons.jfx.input;
 
 /**
  * Holder class for modifier-keys combination of the gesture events.
- * <p>
  * <dl><dt>Example:</dt></dl>
  * To instantiate the GestureModifiers class for event, that should trigger with simultaneous press of Alt and Ctrl keys, use:
  * <pre>
@@ -25,6 +24,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with no modifiers included.
+     *
+     * @return Empty GestureModifiers
      */
     public static GestureModifiers none() {
         return new GestureModifiers();
@@ -33,6 +34,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with "shift" modifier included.
+     *
+     * @return GestureModifiers with "shift" modifier included
      */
     public static GestureModifiers shift() {
         return new GestureModifiers().withShift();
@@ -41,6 +44,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with "control" modifier included.
+     *
+     * @return GestureModifiers with "control" modifier included
      */
     public static GestureModifiers control() {
         return new GestureModifiers().withControl();
@@ -49,6 +54,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with "alt" modifier included.
+     *
+     * @return GestureModifiers with "alt" modifier included
      */
     public static GestureModifiers alt() {
         return new GestureModifiers().withAlt();
@@ -57,6 +64,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with "meta" modifier included.
+     *
+     * @return GestureModifiers with "meta" modifier included
      */
     public static GestureModifiers meta() {
         return new GestureModifiers().withMeta();
@@ -65,6 +74,8 @@ public class GestureModifiers {
 
     /**
      * Creates the new instance of GestureModifiers class with "shortcut" modifier included.
+     *
+     * @return GestureModifiers with "shortcut" modifier included
      */
     public static GestureModifiers shortcut() {
         return new GestureModifiers().withShortcut();

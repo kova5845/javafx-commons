@@ -2,7 +2,6 @@ package dejv.commons.jfx.input;
 
 /**
  * Holder class for mouse-buttons combination of the mouse events.
- * <p>
  * <dl><dt>Example:</dt></dl>
  * To instantiate the MouseButtons class for event, that should trigger on simultaneous press of Primary and Middle mouse buttons, use:
  * <pre>
@@ -22,6 +21,8 @@ public class MouseButtons {
 
     /**
      * Creates the new instance of Buttons class with no buttons included.
+     *
+     * @return Empty MouseButtons
      */
     public static MouseButtons none() {
         return new MouseButtons();
@@ -30,6 +31,8 @@ public class MouseButtons {
 
     /**
      * Creates the new instance of Buttons class with "primary" button included.
+     *
+     * @return MouseButtons with "primary" button included
      */
     public static MouseButtons primary() {
         return new MouseButtons().withPrimary();
@@ -38,6 +41,8 @@ public class MouseButtons {
 
     /**
      * Creates the new instance of Buttons class with "middle" button included.
+     *
+     * @return MouseButtons with "middle" button included
      */
     public static MouseButtons middle() {
         return new MouseButtons().withMiddle();
@@ -46,6 +51,8 @@ public class MouseButtons {
 
     /**
      * Creates the new instance of Buttons class with "secondary" button included.
+     *
+     * @return MouseButtons with "secondary" button included
      */
     public static MouseButtons secondary() {
         return new MouseButtons().withSecondary();
