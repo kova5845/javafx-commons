@@ -2,20 +2,9 @@
 
   
     {
-      "title"			: "Version 1 1 0 Released",
-      "link"			: "https://dejv78.github.io/commons/version-1-1-0-released/",
-      "excerpt"		: "<p>layout: post
-title: &#8220;Version 1.1.0 released!&#8221;
-modified:
-categories: news
-excerpt:
-tags: []
-image:
-  feature:
-date: 2015-04-18T14:22:00+02:00
-&#8212;</p>
-
-"
+      "title"			: "Version 1.1.0 released!",
+      "link"			: "https://dejv78.github.io/commons/news/version-1-1-0-released/",
+      "excerpt"		: ""
     }
   
 
