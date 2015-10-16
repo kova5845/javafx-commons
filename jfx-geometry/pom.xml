@@ -4,6 +4,10 @@
 
     <name>dejv78 :: Commons :: JavaFX Geometry</name>
 
+    <groupId>com.github.dejv78.commons.jfx</groupId>
+    <artifactId>jfx-geometry</artifactId>
+    <packaging>jar</packaging>
+
     <parent>
         <groupId>com.github.dejv78.commons</groupId>
         <artifactId>pom</artifactId>
@@ -11,50 +15,11 @@
         <relativePath>../pom.xml</relativePath>
     </parent>
 
-    <groupId>com.github.dejv78.commons.jfx</groupId>
-    <artifactId>jfx-geometry</artifactId>
-    <packaging>jar</packaging>
-
     <dependencies>
-
         <dependency>
             <groupId>org.apache.commons</groupId>
             <artifactId>commons-math3</artifactId>
         </dependency>
-
     </dependencies>
 
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-source-plugin</artifactId>
-                <version>${plugin.source.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-sources</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
-
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-javadoc-plugin</artifactId>
-                <version>${plugin.javadoc.version}</version>
-                <executions>
-                    <execution>
-                        <id>attach-javadocs</id>
-                        <goals>
-                            <goal>jar</goal>
-                        </goals>
-                    </execution>
-                </executions>
-                <configuration>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
 </project>

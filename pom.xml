@@ -33,26 +33,26 @@
     </scm>
 
     <modules>
-        <module>config</module>
-        <module>config-json</module>
+        <module>io</module>
         <module>jfx-binding</module>
         <module>jfx-geometry</module>
         <module>jfx-input</module>
+        <module>jfx-controls</module>
     </modules>
 
     <properties>
-        <plugin.compiler.version>3.2</plugin.compiler.version>
-        <plugin.release.version>2.5.1</plugin.release.version>
+        <plugin.compiler.version>3.3</plugin.compiler.version>
+        <plugin.release.version>2.5.2</plugin.release.version>
         <plugin.resources.version>2.7</plugin.resources.version>
-        <plugin.jacoco.version>0.7.2.201409121644</plugin.jacoco.version>
         <plugin.source.version>2.4</plugin.source.version>
-        <plugin.javadoc.version>2.10.1</plugin.javadoc.version>
+        <plugin.javadoc.version>2.10.3</plugin.javadoc.version>
+        <plugin.jacoco.version>0.7.5.201505241946</plugin.jacoco.version>
 
-        <junit.version>4.11</junit.version>
-        <mockito.version>1.9.5</mockito.version>
-        <slf4j.version>1.7.5</slf4j.version>
-        <logback.version>1.1.2</logback.version>
-        <commons-math.version>3.2</commons-math.version>
+        <junit.version>4.12</junit.version>
+        <mockito.version>1.10.19</mockito.version>
+        <slf4j.version>1.7.12</slf4j.version>
+        <logback.version>1.1.3</logback.version>
+        <commons-math.version>3.5</commons-math.version>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
     </properties>
@@ -89,8 +89,20 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-math3</artifactId>
                 <version>${commons-math.version}</version>
-                <scope>compile</scope>
             </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-geometry</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-binding</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 
@@ -155,6 +167,35 @@
                     <encoding>${project.build.sourceEncoding}</encoding>
                 </configuration>
             </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-source-plugin</artifactId>
+                <version>${plugin.source.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-sources</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-javadoc-plugin</artifactId>
+                <version>${plugin.javadoc.version}</version>
+                <executions>
+                    <execution>
+                        <id>attach-javadocs</id>
+                        <goals>
+                            <goal>jar</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+
 
             <plugin>
                 <groupId>org.jacoco</groupId>
