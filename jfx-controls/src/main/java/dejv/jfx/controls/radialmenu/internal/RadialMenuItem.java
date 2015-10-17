@@ -33,7 +33,7 @@ import dejv.jfx.controls.radialmenu.RadialMenuParams;
  * Its position within the section is maintained using several transforms, and its transition to that position is animated.
  *
  * @author dejv78 (http://dejv78.github.io)
- * @since 1.0.0
+ * @since 1.2.0
  */
 @SuppressWarnings("unused")
 public class RadialMenuItem

@@ -27,9 +27,9 @@ import dejv.jfx.controls.radialmenu.internal.RadialPane;
  * ContextRadialMenu doesn't display its top level element (the menu trigger button), as the menu is usually opened dynamically on specified coordinates.
  * <p>
  *
- * @author dejv78 (http://dejv78.github.io)
  * @see RadialMenu
- * @since 1.0.0
+ * @author dejv78 (http://dejv78.github.io)
+ * @since 1.2.0
  */
 @SuppressWarnings("unused")
 public class ContextRadialMenu {

@@ -31,7 +31,7 @@ import dejv.commons.jfx.geometry.ObservablePoint2D;
  * <p>
  *
  * @author dejv78 (dejv78.github.io)
- * @since 1.0.0
+ * @since 1.2.0
  */
 @DefaultProperty("content")
 public class ZoomFX

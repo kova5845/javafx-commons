@@ -35,7 +35,7 @@ import dejv.jfx.controls.radialmenu.internal.RadialMenuItem;
  * Menu buttons use "roundButton" as their style ID, so this can be used to override the default style with custom menu appearance.
  *
  * @author dejv78 (http://dejv78.github.io)
- * @since 1.0.0
+ * @since 1.2.0
  */
 @SuppressWarnings("unused")
 @DefaultProperty("menu")

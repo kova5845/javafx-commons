@@ -38,6 +38,7 @@
         <module>jfx-geometry</module>
         <module>jfx-input</module>
         <module>jfx-controls</module>
+        <module>demo-app</module>
     </modules>
 
     <properties>
@@ -92,8 +93,20 @@
             </dependency>
 
             <dependency>
+                <groupId>com.github.dejv78.commons.io</groupId>
+                <artifactId>io</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
                 <groupId>com.github.dejv78.commons.jfx</groupId>
                 <artifactId>jfx-geometry</artifactId>
+                <version>${project.version}</version>
+            </dependency>
+
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-input</artifactId>
                 <version>${project.version}</version>
             </dependency>
 
@@ -103,6 +116,11 @@
                 <version>${project.version}</version>
             </dependency>
 
+            <dependency>
+                <groupId>com.github.dejv78.commons.jfx</groupId>
+                <artifactId>jfx-controls</artifactId>
+                <version>${project.version}</version>
+            </dependency>
         </dependencies>
     </dependencyManagement>
 

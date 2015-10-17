@@ -19,7 +19,7 @@ import dejv.jfx.controls.radialmenu.event.RadialMenuEventSource;
  * <p>
  *
  * @author dejv78 (http://dejv78.github.io)
- * @since 1.0.0
+ * @since 1.2.0
  */
 public class RadialPane
         extends Pane {
