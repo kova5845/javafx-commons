@@ -203,6 +203,7 @@ public class RadialMenuSection {
 
                 final RadialMenuSection subSection = add(owner, radialPane, subMenu, this, itemAngleDeg);
 
+                createAction(itemButton, item);
                 createTrigger(itemButton, subMenu, subSection);
             } else {
                 createAction(itemButton, item);
@@ -215,7 +216,7 @@ public class RadialMenuSection {
 
         final double max = itemsCount - 1.0d;
 
-        double itemRange = (idx / max) - 0.5d;
+        double itemRange = (max > 0) ?(idx / max) - 0.5d : 0.5d;
 
         if (params.getDirection() == Direction.CCW) {
             itemRange *= -1.0d;

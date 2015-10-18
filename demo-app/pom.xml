@@ -21,6 +21,11 @@
 
     <dependencies>
         <dependency>
+            <groupId>de.jensd</groupId>
+            <artifactId>fontawesomefx</artifactId>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.dejv78.commons.io</groupId>
             <artifactId>io</artifactId>
         </dependency>
