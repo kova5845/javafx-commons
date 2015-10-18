@@ -179,11 +179,8 @@ public class ContextRadialMenu {
 
 
     private void setupRadialPane(Node target, double x, double y) {
+        radialPane.getStylesheets().addAll(params.getStyleSheets());
         radialPane.setEventSource(new RadialMenuEventSource(parent.screenToLocal(x, y), target));
-
-        if (params.getStyleSheet() != null) {
-            radialPane.getStylesheets().add(params.getStyleSheet());
-        }
     }
 
 

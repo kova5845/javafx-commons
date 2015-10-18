@@ -70,7 +70,7 @@ public class RadialMenu
     public void setMenu(Menu menu) {
         this.menu = menu;
 
-        RadialMenuItem.setupMenuButton(this, radialMenuParams, (menu != null) ? menu.getGraphic() : null, (menu != null) ? menu.getText() : null);
+        RadialMenuItem.setupMenuButton(this, radialMenuParams, (menu != null) ? menu.getGraphic() : null, (menu != null) ? menu.getText() : null, true);
     }
 
 

@@ -5,6 +5,10 @@ import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.ReadOnlyDoubleProperty;
 import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
+import javafx.beans.property.SimpleStringProperty;
+import javafx.beans.property.StringProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 
 /**
  * Customization parameters for Radial Menu.
@@ -15,6 +19,9 @@ import javafx.beans.property.SimpleObjectProperty;
  */
 @SuppressWarnings("unused")
 public class RadialMenuParams {
+
+    public static final String DEFAULT_CSS_NAME = "roundButton.css";
+    public static final String DEFAULT_CSS_ID = "roundButton";
 
     /**
      * Radial direction
@@ -41,7 +48,10 @@ public class RadialMenuParams {
     private DoubleProperty outerPadding = new SimpleDoubleProperty(10d);
 
     private ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.CW);
-    private String styleSheet;
+
+    private ObservableList<String> styleSheets = FXCollections.observableArrayList(DEFAULT_CSS_NAME);
+    private ObservableList<String> styleClasses = FXCollections.observableArrayList();
+    private StringProperty styleId = new SimpleStringProperty(DEFAULT_CSS_ID);
 
 
     /**
@@ -57,6 +67,9 @@ public class RadialMenuParams {
      * @param angleToDeg   "To" angle in degrees - end angle of the menu arc
      * @return The current RadialMenuParams instance for fluent setup
      */
+
+
+
     public RadialMenuParams setAngles(double angleFromDeg, double angleToDeg) {
         if (angleFromDeg > angleToDeg) {
             final double tmpDeg = angleFromDeg;
@@ -295,23 +308,27 @@ public class RadialMenuParams {
     }
 
 
-    /**
-     * Returns the stylesheet name for the Radial Menu.
-     * @return Stylesheet name.
-     */
-    public String getStyleSheet() {
-        return styleSheet;
+    public ObservableList<String> getStyleSheets() {
+        return styleSheets;
     }
 
 
-    /**
-     * Set the stylesheet for the Radial Menu.
-     *
-     * @param styleSheet Stylesheet path (for example "fxml/style.css")
-     * @return The current RadialMenuParams instance for fluent setup
-     */
-    public RadialMenuParams setStyleSheet(String styleSheet) {
-        this.styleSheet = styleSheet;
-        return this;
+    public ObservableList<String> getStyleClasses() {
+        return styleClasses;
+    }
+
+
+    public String getStyleId() {
+        return styleId.get();
+    }
+
+
+    public StringProperty styleIdProperty() {
+        return styleId;
+    }
+
+
+    public void setStyleId(String styleId) {
+        this.styleId.set(styleId);
     }
 }

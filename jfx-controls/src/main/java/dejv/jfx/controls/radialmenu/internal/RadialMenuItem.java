@@ -39,9 +39,6 @@ import dejv.jfx.controls.radialmenu.RadialMenuParams;
 public class RadialMenuItem
         extends Pane {
 
-    public static final String CSS_ID = "roundButton";
-    public static final String CSS_NAME = "roundButton.css";
-
     private final Button button;
 
     private final RadialMenuSection parentSection;
@@ -176,7 +173,7 @@ public class RadialMenuItem
      * @param graphic Graphics contents
      * @param tooltip Tooltip text
      */
-    public static void setupMenuButton(ButtonBase button, RadialMenuParams params, Node graphic, String tooltip) {
+    public static void setupMenuButton(ButtonBase button, RadialMenuParams params, Node graphic, String tooltip, boolean addStyle) {
         button.minWidthProperty().bind(params.buttonSizeProperty());
         button.minHeightProperty().bind(params.buttonSizeProperty());
         button.prefWidthProperty().bind(params.buttonSizeProperty());
@@ -184,8 +181,11 @@ public class RadialMenuItem
         button.maxWidthProperty().bind(params.buttonSizeProperty());
         button.maxHeightProperty().bind(params.buttonSizeProperty());
 
-        button.setId(CSS_ID);
-        button.getStylesheets().add(CSS_NAME);
+        if (addStyle) {
+            button.getStylesheets().addAll(params.getStyleSheets());
+        }
+        button.setId(params.getStyleId());
+        button.getStyleClass().addAll(params.getStyleClasses());
 
         button.setGraphic(graphic);
         button.setTooltip(new Tooltip(tooltip));
@@ -203,7 +203,7 @@ public class RadialMenuItem
 
     private Button generateButton(RadialMenuParams params, Node graphics, String tooltip, boolean disabled) {
         final Button b = new Button();
-        setupMenuButton(b, params, graphics, tooltip);
+        setupMenuButton(b, params, graphics, tooltip, false);
 
         b.setDisable(disabled);
         return b;
