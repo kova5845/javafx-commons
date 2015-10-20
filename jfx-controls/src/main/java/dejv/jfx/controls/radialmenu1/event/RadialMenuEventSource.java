@@ -1,10 +1,10 @@
-package dejv.jfx.controls.radialmenu.event;
+package dejv.jfx.controls.radialmenu1.event;
 
 import javafx.event.ActionEvent;
 import javafx.geometry.Point2D;
 import javafx.scene.Node;
 
-import dejv.jfx.controls.radialmenu.ContextRadialMenu;
+import dejv.jfx.controls.radialmenu1.ContextRadialMenu;
 
 /**
  * An object, that is being sent as {@link ActionEvent#getSource()} into actions, triggered by Radial Menu items.

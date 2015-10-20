@@ -1,4 +1,4 @@
-package dejv.jfx.controls.radialmenu.internal;
+package dejv.jfx.controls.radialmenu1.internal;
 
 /**
  * Location coordinates of Radial Menu Item.

@@ -1,12 +1,31 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import java.net.URL?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
-<?import dejv.jfx.controls.zoomfx.ZoomFX?>
 <?import dejv.jfx.controls.radialmenu.RadialMenu?>
+<?import dejv.jfx.controls.radialmenu.RadialMenuButton?>
+<?import dejv.jfx.controls.radialmenu.RadialMenuItem?>
+<?import dejv.jfx.controls.zoomfx.ZoomFX?>
+
 <AnchorPane fx:id="pane" xmlns:fx="http://javafx.com/fxml" fx:controller="dejv.commons.demo.DemoFXMLController">
+    <stylesheets>
+        <URL value="@demo.css"/>
+    </stylesheets>
+
     <ZoomFX AnchorPane.rightAnchor="0" AnchorPane.topAnchor="0" AnchorPane.leftAnchor="0" AnchorPane.bottomAnchor="0">
         <Rectangle x="0" y="0" width="700" height="500" fill="white" stroke="black"/>
     </ZoomFX>
-    <RadialMenu fx:id="mainMenu" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="30"/>
+
+    <RadialMenuButton AnchorPane.topAnchor="10" AnchorPane.rightAnchor="30">
+        <items>
+            <RadialMenuItem/>
+            <RadialMenuItem/>
+            <RadialMenu>
+                <RadialMenuItem/>
+                <RadialMenuItem/>
+            </RadialMenu>
+            <RadialMenuItem/>
+        </items>
+    </RadialMenuButton>
 </AnchorPane>

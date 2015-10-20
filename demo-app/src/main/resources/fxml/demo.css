@@ -1,0 +1,7 @@
+.radial-menu-button {
+    -fx-size: 5cm;
+}
+
+.radial-menu-button .toggle-button {
+    -fx-text-alignment: center;
+}

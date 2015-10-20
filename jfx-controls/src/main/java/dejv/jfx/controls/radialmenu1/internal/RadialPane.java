@@ -1,4 +1,4 @@
-package dejv.jfx.controls.radialmenu.internal;
+package dejv.jfx.controls.radialmenu1.internal;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -12,7 +12,7 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.layout.Pane;
 
 import dejv.commons.jfx.geometry.ObservablePoint2D;
-import dejv.jfx.controls.radialmenu.event.RadialMenuEventSource;
+import dejv.jfx.controls.radialmenu1.event.RadialMenuEventSource;
 
 /**
  * Pane to hold the Radial Menu sections.

@@ -1,4 +1,4 @@
-package dejv.jfx.controls.radialmenu.internal;
+package dejv.jfx.controls.radialmenu1.internal;
 
 import java.util.List;
 
@@ -10,9 +10,9 @@ import javafx.scene.control.MenuItem;
 import javafx.scene.shape.Circle;
 
 import dejv.commons.jfx.geometry.ObservablePoint2D;
-import dejv.jfx.controls.radialmenu.ContextRadialMenu;
-import dejv.jfx.controls.radialmenu.RadialMenuParams;
-import dejv.jfx.controls.radialmenu.RadialMenuParams.Direction;
+import dejv.jfx.controls.radialmenu1.ContextRadialMenu;
+import dejv.jfx.controls.radialmenu1.RadialMenuParams;
+import dejv.jfx.controls.radialmenu1.RadialMenuParams.Direction;
 
 /**
  * One section of Radial Menu.

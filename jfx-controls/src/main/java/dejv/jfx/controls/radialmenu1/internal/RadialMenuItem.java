@@ -1,4 +1,4 @@
-package dejv.jfx.controls.radialmenu.internal;
+package dejv.jfx.controls.radialmenu1.internal;
 
 import javafx.animation.KeyFrame;
 import javafx.animation.KeyValue;
@@ -23,7 +23,7 @@ import javafx.util.Duration;
 
 import de.jensd.fx.glyphs.GlyphsDude;
 import de.jensd.fx.glyphs.fontawesome.FontAwesomeIcon;
-import dejv.jfx.controls.radialmenu.RadialMenuParams;
+import dejv.jfx.controls.radialmenu1.RadialMenuParams;
 
 /**
  * Radial Menu Item class.
