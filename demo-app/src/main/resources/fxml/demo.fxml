@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import java.net.URL?>
+<?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
 <?import dejv.jfx.controls.radialmenu.RadialMenu?>
 <?import dejv.jfx.controls.radialmenu.RadialMenuButton?>
 <?import dejv.jfx.controls.radialmenu.RadialMenuItem?>
 <?import dejv.jfx.controls.zoomfx.ZoomFX?>
-
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
+<?import javafx.scene.control.Tooltip?>
 <AnchorPane fx:id="pane" xmlns:fx="http://javafx.com/fxml" fx:controller="dejv.commons.demo.DemoFXMLController">
     <stylesheets>
         <URL value="@demo.css"/>
@@ -17,7 +19,15 @@
         <Rectangle x="0" y="0" width="700" height="500" fill="white" stroke="black"/>
     </ZoomFX>
 
-    <RadialMenuButton AnchorPane.topAnchor="10" AnchorPane.rightAnchor="30">
+    <Button text="Dbg" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" onAction="#onDebug"/>
+
+    <RadialMenuButton fx:id="rmb" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="30">
+        <tooltip>
+            <Tooltip text="Radial Menu"/>
+        </tooltip>
+        <graphic>
+            <FontAwesomeIconView glyphName="BARS"/>
+        </graphic>
         <items>
             <RadialMenuItem/>
             <RadialMenuItem/>

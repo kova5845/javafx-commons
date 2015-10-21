@@ -1,10 +1,24 @@
 package dejv.commons.demo;
 
+import javafx.beans.InvalidationListener;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableMap;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.geometry.Pos;
+import javafx.scene.control.Button;
+import javafx.scene.control.ButtonType;
+import javafx.scene.control.Dialog;
+import javafx.scene.control.Label;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
+import dejv.jfx.controls.radialmenu.RadialMenuButton;
 
 
 /**
@@ -23,7 +37,9 @@ public class DemoFXMLController {
     @FXML
     private AnchorPane pane;
 
-//    private Menu mMainMenu;
+    @FXML
+    public RadialMenuButton rmb;
+
 
     @FXML
     public void initialize() {
@@ -45,4 +61,34 @@ public class DemoFXMLController {
     }
 
 
+    @FXML
+    public void onDebug(ActionEvent actionEvent) {
+        final ObservableMap<String, String> rmbStyleMap = FXCollections.observableHashMap();
+        rmbStyleMap.addListener((InvalidationListener)(observable) ->
+                rmb.setStyle(rmbStyleMap.entrySet().stream()
+                        .map((entry) -> entry.getKey() + ": " + entry.getValue() + ";")
+                        .reduce((s1, s2) -> s1 + s2).orElse("")));
+
+        final Button bSize = new Button("Size");
+        bSize.setOnAction((event) -> rmbStyleMap.put("-fx-size", "35"));
+
+        final Button bGraphic = new Button("Graphic");
+        bGraphic.setOnAction((event) -> rmbStyleMap.put("-fx-graphic","url(\"http://icons.iconarchive.com/icons/hopstarter/button/16/Button-Add-icon.png\")"));
+
+        final HBox menuButtonRow = new HBox();
+        menuButtonRow.setAlignment(Pos.CENTER_LEFT);
+        menuButtonRow.getChildren().addAll(new Label("RadialMenuButton:"), bSize, bGraphic);
+
+        final VBox vbox = new VBox();
+        vbox.getChildren().addAll(menuButtonRow);
+
+        final Dialog dialog = new Dialog();
+        dialog.initModality(Modality.NONE);
+        dialog.initOwner(pane.getScene().getWindow());
+        dialog.setTitle("Debugging actions");
+        dialog.setHeaderText("Select an action to perform below:");
+        dialog.getDialogPane().setContent(vbox);
+        dialog.getDialogPane().getButtonTypes().add(ButtonType.CLOSE);
+        dialog.show();
+    }
 }
