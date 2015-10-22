@@ -16,7 +16,7 @@ public interface FileSerializer {
      *
      * @param <T>   Configuration type
      * @param path Path of a file to load from
-     * @param clazz Runtime type of the data
+     * @param clazz Runtime type of the structure
      * @return The configuration object
      * @throws SerializationException When loading or deserialization fails
      */
@@ -25,8 +25,8 @@ public interface FileSerializer {
     /**
      * Serializes and stores the file.
      *
-     * @param <T> Runtime type of the data object
-     * @param path Path of a file to store the data into
+     * @param <T> Runtime type of the structure object
+     * @param path Path of a file to store the structure into
      * @param data Data object
      * @throws SerializationException When storing or serialization fails
      */

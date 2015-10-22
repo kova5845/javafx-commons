@@ -8,8 +8,6 @@ import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.WritableValue;
-import javafx.collections.FXCollections;
-import javafx.collections.ObservableList;
 import javafx.css.CssMetaData;
 import javafx.css.StyleConverter;
 import javafx.css.Styleable;
@@ -44,7 +42,7 @@ public class RadialMenuButton
     private static final String CSS_PROP_NAME_SIZE = "-fx-size";
     private static final String CSS_PROP_NAME_GRAPHIC = "-fx-graphic";
 
-    private final ObservableList<RadialMenuItem> items = FXCollections.observableArrayList();
+    private final ObjectProperty<RadialMenu> menu = new SimpleObjectProperty<>();
 
     private DoubleProperty size;
     private ObjectProperty<Node> graphic = new SimpleObjectProperty<>(this, PROP_NAME_GRAPHIC);
@@ -56,14 +54,30 @@ public class RadialMenuButton
     }
 
 
-    public ObservableList<RadialMenuItem> getItems() {
-        return items;
+    /*******************************************************************************************************
+     * Properties
+     *******************************************************************************************************/
+
+
+     // ---------------------- RADIAL MENU
+
+
+    public RadialMenu getMenu() {
+        return menu.get();
     }
 
 
-    /*
-     * ---------------------- SIZE
-     */
+    public ObjectProperty<RadialMenu> menuProperty() {
+        return menu;
+    }
+
+
+    public void setMenu(RadialMenu menu) {
+        this.menu.set(menu);
+    }
+
+
+    // ---------------------- SIZE
 
 
     public double getSize() {
@@ -80,15 +94,12 @@ public class RadialMenuButton
 
 
     public void setSize(double size) {
-        System.out.println("Set size: " + size);
         this.sizeProperty().set(size);
     }
 
 
 
-    /*
-     * ---------------------- GRAPHIC
-     */
+    // ---------------------- GRAPHIC
 
 
     public final Node getGraphic() {
@@ -109,14 +120,13 @@ public class RadialMenuButton
 
 
 
-    /*
-     * ---------------------- IMAGE URL
-     */
+    // ---------------------- IMAGE URL
+
 
     private StyleableStringProperty imageUrlProperty() {
 
         if (imageUrl == null) {
-            imageUrl = CssHelper.createStyleableStringProperty(this, PROP_NAME_IMAGE_URL, GRAPHIC, ()-> {
+            imageUrl = CssHelper.createStyleableStringProperty(this, PROP_NAME_IMAGE_URL, GRAPHIC, () -> {
                 final String url = imageUrlProperty().get();
 
                 if (url != null) {
@@ -133,10 +143,9 @@ public class RadialMenuButton
         return imageUrl;
     }
 
+
     /*******************************************************************************************************
-     *
      * Overrides
-     *
      *******************************************************************************************************/
 
     @Override
@@ -152,9 +161,7 @@ public class RadialMenuButton
 
 
     /*******************************************************************************************************
-     *
-     * Styleable properties
-     *
+     * CSS Support
      *******************************************************************************************************/
 
 

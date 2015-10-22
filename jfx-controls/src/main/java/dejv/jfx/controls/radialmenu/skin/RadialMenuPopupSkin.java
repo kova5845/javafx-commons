@@ -6,6 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
+import dejv.jfx.controls.radialmenu.RadialMenu;
 import dejv.jfx.controls.radialmenu.RadialMenuPopup;
 
 /**
@@ -36,9 +37,16 @@ public class RadialMenuPopupSkin implements Skin<RadialMenuPopup> {
 
         Circle center = new Circle();
         center.setRadius(1);
-        center.setFill(Color.RED);
-        center.setStroke(Color.BLUEVIOLET);
+        perimeter.setFill(Color.TRANSPARENT);
+        center.setStroke(Color.RED);
         root.getChildren().addAll(center, perimeter);
+
+        popup.menuProperty().addListener((observable -> regenerateMenu(popup.getMenu())));
+    }
+
+
+    private void regenerateMenu(RadialMenu menu) {
+
     }
 
 
@@ -56,6 +64,15 @@ public class RadialMenuPopupSkin implements Skin<RadialMenuPopup> {
 
     @Override
     public void dispose() {
+
+    }
+
+
+    private class RadialMenuSection {
+
+        private RadialMenuSection() {
+
+        }
 
     }
 }

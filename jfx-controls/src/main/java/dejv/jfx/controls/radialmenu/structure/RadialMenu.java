@@ -1,4 +1,4 @@
-package dejv.jfx.controls.radialmenu;
+package dejv.jfx.controls.radialmenu.structure;
 
 import javafx.beans.DefaultProperty;
 import javafx.collections.FXCollections;

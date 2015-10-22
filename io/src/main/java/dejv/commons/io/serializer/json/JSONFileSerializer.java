@@ -27,11 +27,11 @@ public class JSONFileSerializer
         implements FileSerializer {
 
     private static final Logger LOGGER = LoggerFactory.getLogger(JSONFileSerializer.class);
-    private static final String MSG_LOADING_DATA = "Loading data from: {}";
-    private static final String MSG_STORING_DATA = "Storing data to: {}";
+    private static final String MSG_LOADING_DATA = "Loading structure from: {}";
+    private static final String MSG_STORING_DATA = "Storing structure to: {}";
 
-    private static final String ERR_UNABLE_TO_LOAD = "Unable to load data from file";
-    private static final String ERR_UNABLE_TO_STORE = "Unable to store data to a file";
+    private static final String ERR_UNABLE_TO_LOAD = "Unable to load structure from file";
+    private static final String ERR_UNABLE_TO_STORE = "Unable to store structure to a file";
     private static final String ERR_UNABLE_TO_INITIALIZE_FILE = "Unable to initialize file: ";
 
 
@@ -60,7 +60,7 @@ public class JSONFileSerializer
     public <T> void store(String path, T data) throws SerializationException {
 
         requireNonNull(path, "Parameter 'path' is null");
-        requireNonNull(data, "Parameter 'data' is null");
+        requireNonNull(data, "Parameter 'structure' is null");
 
         final ObjectMapper objectMapper = new ObjectMapper();
 

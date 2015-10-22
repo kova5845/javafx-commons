@@ -4,12 +4,11 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.shape.Rectangle?>
+<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
 <?import dejv.jfx.controls.radialmenu.RadialMenu?>
 <?import dejv.jfx.controls.radialmenu.RadialMenuButton?>
-<?import dejv.jfx.controls.radialmenu.RadialMenuItem?>
+<?import dejv.jfx.controls.radialmenu.structure.RadialMenuItem?>
 <?import dejv.jfx.controls.zoomfx.ZoomFX?>
-<?import de.jensd.fx.glyphs.fontawesome.FontAwesomeIconView?>
-<?import javafx.scene.control.Tooltip?>
 <AnchorPane fx:id="pane" xmlns:fx="http://javafx.com/fxml" fx:controller="dejv.commons.demo.DemoFXMLController">
     <stylesheets>
         <URL value="@demo.css"/>
@@ -22,20 +21,48 @@
     <Button text="Dbg" AnchorPane.topAnchor="10" AnchorPane.leftAnchor="10" onAction="#onDebug"/>
 
     <RadialMenuButton fx:id="rmb" AnchorPane.topAnchor="10" AnchorPane.rightAnchor="30">
-        <tooltip>
-            <Tooltip text="Radial Menu"/>
-        </tooltip>
-        <graphic>
-            <FontAwesomeIconView glyphName="BARS"/>
-        </graphic>
-        <items>
-            <RadialMenuItem/>
-            <RadialMenuItem/>
-            <RadialMenu>
-                <RadialMenuItem/>
-                <RadialMenuItem/>
+        <menu>
+            <RadialMenu tooltip="Main menu">
+                <graphic>
+                    <FontAwesomeIconView glyphName="BARS"/>
+                </graphic>
+
+                <RadialMenuItem tooltip="New">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="FILE_ALT"/>
+                    </graphic>
+                </RadialMenuItem>
+
+                <RadialMenuItem tooltip="Open">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="FOLDER_OPEN"/>
+                    </graphic>
+                </RadialMenuItem>
+
+                <RadialMenu tooltip="Save">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="FLOPPY_ALT"/>
+                    </graphic>
+
+                    <RadialMenuItem tooltip="Save as...">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="FOLDER"/>
+                        </graphic>
+                    </RadialMenuItem>
+
+                    <RadialMenuItem tooltip="Save all...">
+                        <graphic>
+                            <FontAwesomeIconView glyphName="FOLDER_ALT"/>
+                        </graphic>
+                    </RadialMenuItem>
+                </RadialMenu>
+
+                <RadialMenuItem tooltip="Properties">
+                    <graphic>
+                        <FontAwesomeIconView glyphName="COGS"/>
+                    </graphic>
+                </RadialMenuItem>
             </RadialMenu>
-            <RadialMenuItem/>
-        </items>
+        </menu>
     </RadialMenuButton>
 </AnchorPane>

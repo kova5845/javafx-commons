@@ -16,9 +16,11 @@ import dejv.jfx.controls.radialmenu.RadialMenuPopup;
  * @since 1.0.0
  */
 public class RadialMenuButtonSkin
-    extends SkinBase<RadialMenuButton> {
+        extends SkinBase<RadialMenuButton> {
 
-    final ToggleButton button;
+    private final ToggleButton button;
+    private final RadialMenuPopup popup = new RadialMenuPopup();
+
 
     public RadialMenuButtonSkin(RadialMenuButton control) {
         super(control);
@@ -31,13 +33,13 @@ public class RadialMenuButtonSkin
         bindSize();
         bindGraphic();
         bindTooltip();
+        bindMenu();
 
-        button.selectedProperty().addListener((sender, oldValue, newValue)-> {
+        button.selectedProperty().addListener((sender, oldValue, newValue) -> {
             if (newValue) {
-                final double offset = getSkinnable().getSize() * 0.5;
-                RadialMenuPopup rmp = new RadialMenuPopup();
+                final double offset = control.getSize() * 0.5;
                 Point2D p = button.localToScreen(offset, offset);
-                rmp.show(button, p.getX(), p.getY());
+                popup.show(button, p.getX(), p.getY());
             }
         });
     }
@@ -53,7 +55,7 @@ public class RadialMenuButtonSkin
         button.maxHeightProperty().bind(sizeProperty);
 
         updateButtonRadius(sizeProperty.doubleValue());
-        getSkinnable().sizeProperty().addListener((sender, oldValue, newValue)-> updateButtonRadius(newValue.doubleValue()));
+        getSkinnable().sizeProperty().addListener((sender, oldValue, newValue) -> updateButtonRadius(newValue.doubleValue()));
     }
 
 
@@ -61,9 +63,16 @@ public class RadialMenuButtonSkin
         button.graphicProperty().bind(getSkinnable().graphicProperty());
     }
 
+
     private void bindTooltip() {
         button.tooltipProperty().bind(getSkinnable().tooltipProperty());
     }
+
+
+    private void bindMenu() {
+        popup.menuProperty().bind(getSkinnable().menuProperty());
+    }
+
 
     private void updateButtonRadius(double size) {
         button.setStyle("-fx-background-radius: " + size);
