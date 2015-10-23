@@ -22,7 +22,7 @@ import javafx.scene.image.ImageView;
 import com.sun.javafx.css.StyleManager;
 
 import dejv.jfx.controls.css.CssHelper;
-import dejv.jfx.controls.radialmenu.skin.RadialMenuButtonSkin;
+import dejv.jfx.controls.radialmenu.skin.RadialMenuItemSkin;
 
 /**
  * <p>
@@ -30,9 +30,10 @@ import dejv.jfx.controls.radialmenu.skin.RadialMenuButtonSkin;
  * @author dejv78 (dejv78.github.io)
  * @since 1.0.0
  */
-public class RadialMenuButton
+public class RadialMenuItem
         extends Control {
-    private static final String DEFAULT_STYLE_CLASS = "radial-menu-button";
+
+    private static final String DEFAULT_STYLE_CLASS = "radial-menu-item-button";
     private static final double DEFAULT_SIZE = 20d;
 
     private static final String PROP_NAME_SIZE = "size";
@@ -42,38 +43,12 @@ public class RadialMenuButton
     private static final String CSS_PROP_NAME_SIZE = "-fx-size";
     private static final String CSS_PROP_NAME_GRAPHIC = "-fx-graphic";
 
-    private final ObjectProperty<RadialMenu> menu = new SimpleObjectProperty<>();
-
     private DoubleProperty size;
     private ObjectProperty<Node> graphic = new SimpleObjectProperty<>(this, PROP_NAME_GRAPHIC);
     private StyleableStringProperty imageUrl = null;
 
 
-    public RadialMenuButton() {
-        getStyleClass().addAll(DEFAULT_STYLE_CLASS);
-    }
-
-
-    /*******************************************************************************************************
-     * Properties
-     *******************************************************************************************************/
-
-
-     // ---------------------- RADIAL MENU
-
-
-    public RadialMenu getMenu() {
-        return menu.get();
-    }
-
-
-    public ObjectProperty<RadialMenu> menuProperty() {
-        return menu;
-    }
-
-
-    public void setMenu(RadialMenu menu) {
-        this.menu.set(menu);
+    public RadialMenuItem() {
     }
 
 
@@ -150,7 +125,7 @@ public class RadialMenuButton
 
     @Override
     protected Skin<?> createDefaultSkin() {
-        return new RadialMenuButtonSkin(this);
+        return new RadialMenuItemSkin(this);
     }
 
 
@@ -165,36 +140,36 @@ public class RadialMenuButton
      *******************************************************************************************************/
 
 
-    private static final CssMetaData<RadialMenuButton, Number> SIZE =
-            new CssMetaData<RadialMenuButton, Number>(CSS_PROP_NAME_SIZE, StyleConverter.getSizeConverter(), DEFAULT_SIZE) {
+    private static final CssMetaData<RadialMenuItem, Number> SIZE =
+            new CssMetaData<RadialMenuItem, Number>(CSS_PROP_NAME_SIZE, StyleConverter.getSizeConverter(), DEFAULT_SIZE) {
 
                 @Override
-                public boolean isSettable(RadialMenuButton rmb) {
-                    return (rmb.size == null) || !rmb.size.isBound();
+                public boolean isSettable(RadialMenuItem rmi) {
+                    return (rmi.size == null) || !rmi.size.isBound();
                 }
 
 
                 @SuppressWarnings("RedundantCast")
                 @Override
-                public StyleableProperty<Number> getStyleableProperty(RadialMenuButton rmb) {
-                    return (StyleableProperty<Number>) (WritableValue<Number>) rmb.sizeProperty();
+                public StyleableProperty<Number> getStyleableProperty(RadialMenuItem rmi) {
+                    return (StyleableProperty<Number>) (WritableValue<Number>) rmi.sizeProperty();
                 }
             };
 
 
-    private static final CssMetaData<RadialMenuButton, String> GRAPHIC =
-            new CssMetaData<RadialMenuButton, String>(CSS_PROP_NAME_GRAPHIC, StyleConverter.getUrlConverter(), null) {
+    private static final CssMetaData<RadialMenuItem, String> GRAPHIC =
+            new CssMetaData<RadialMenuItem, String>(CSS_PROP_NAME_GRAPHIC, StyleConverter.getUrlConverter(), null) {
 
                 @Override
-                public boolean isSettable(RadialMenuButton rmb) {
-                    return ((rmb.graphic == null) || !rmb.graphic.isBound());
+                public boolean isSettable(RadialMenuItem rmi) {
+                    return ((rmi.graphic == null) || !rmi.graphic.isBound());
                 }
 
 
                 @SuppressWarnings("RedundantCast")
                 @Override
-                public StyleableProperty<String> getStyleableProperty(RadialMenuButton rmb) {
-                    return rmb.imageUrlProperty();
+                public StyleableProperty<String> getStyleableProperty(RadialMenuItem rmi) {
+                    return rmi.imageUrlProperty();
                 }
             };
 
@@ -210,4 +185,6 @@ public class RadialMenuButton
 
         STYLEABLE_PROPERTIES = Collections.unmodifiableList(styleables);
     }
+
+
 }

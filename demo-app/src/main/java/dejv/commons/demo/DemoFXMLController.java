@@ -18,7 +18,7 @@ import javafx.stage.Modality;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
-import dejv.jfx.controls.radialmenu.RadialMenuButton;
+import dejv.jfx.controls.radialmenu.RadialMenu;
 
 
 /**
@@ -38,7 +38,7 @@ public class DemoFXMLController {
     private AnchorPane pane;
 
     @FXML
-    public RadialMenuButton rmb;
+    public RadialMenu rmb;
 
 
     @FXML

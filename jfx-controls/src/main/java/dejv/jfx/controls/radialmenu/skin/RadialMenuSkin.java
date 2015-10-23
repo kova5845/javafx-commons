@@ -6,7 +6,7 @@ import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.SkinBase;
 import javafx.scene.control.ToggleButton;
 
-import dejv.jfx.controls.radialmenu.RadialMenuButton;
+import dejv.jfx.controls.radialmenu.RadialMenu;
 import dejv.jfx.controls.radialmenu.RadialMenuPopup;
 
 /**
@@ -15,14 +15,14 @@ import dejv.jfx.controls.radialmenu.RadialMenuPopup;
  * @author dejv78 (dejv78.github.io)
  * @since 1.0.0
  */
-public class RadialMenuButtonSkin
-        extends SkinBase<RadialMenuButton> {
+public class RadialMenuSkin
+        extends SkinBase<RadialMenu> {
 
     private final ToggleButton button;
     private final RadialMenuPopup popup = new RadialMenuPopup();
 
 
-    public RadialMenuButtonSkin(RadialMenuButton control) {
+    public RadialMenuSkin(RadialMenu control) {
         super(control);
 
         button = new ToggleButton();
