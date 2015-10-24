@@ -6,8 +6,7 @@ import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
-import dejv.jfx.controls.radialmenu.RadialMenu;
-import dejv.jfx.controls.radialmenu.RadialMenuPopup;
+import dejv.jfx.controls.radialmenu.ContextRadialMenu;
 
 /**
  * <p>
@@ -15,18 +14,19 @@ import dejv.jfx.controls.radialmenu.RadialMenuPopup;
  * @author dejv78 (dejv78.github.io)
  * @since 1.0.0
  */
-public class RadialMenuPopupSkin implements Skin<RadialMenuPopup> {
+public class ContextRadialMenuSkin
+        implements Skin<ContextRadialMenu> {
 
     /**
      * Constructor for all SkinBase instances.
      *
      * @param popup The popup for which this Skin should attach to.
      */
-    private final RadialMenuPopup popup;
+    private final ContextRadialMenu popup;
 
     private final Pane root;
 
-    public RadialMenuPopupSkin(RadialMenuPopup control) {
+    public ContextRadialMenuSkin(ContextRadialMenu control) {
         this.popup = control;
         root = new Pane();
 
@@ -40,18 +40,11 @@ public class RadialMenuPopupSkin implements Skin<RadialMenuPopup> {
         perimeter.setFill(Color.TRANSPARENT);
         center.setStroke(Color.RED);
         root.getChildren().addAll(center, perimeter);
-
-        popup.menuProperty().addListener((observable -> regenerateMenu(popup.getMenu())));
-    }
-
-
-    private void regenerateMenu(RadialMenu menu) {
-
     }
 
 
     @Override
-    public RadialMenuPopup getSkinnable() {
+    public ContextRadialMenu getSkinnable() {
         return popup;
     }
 
@@ -64,15 +57,6 @@ public class RadialMenuPopupSkin implements Skin<RadialMenuPopup> {
 
     @Override
     public void dispose() {
-
-    }
-
-
-    private class RadialMenuSection {
-
-        private RadialMenuSection() {
-
-        }
 
     }
 }

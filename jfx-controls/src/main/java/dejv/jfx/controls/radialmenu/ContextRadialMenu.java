@@ -2,14 +2,14 @@ package dejv.jfx.controls.radialmenu;
 
 import java.util.List;
 
-import javafx.beans.property.ObjectProperty;
-import javafx.beans.property.SimpleObjectProperty;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.css.CssMetaData;
 import javafx.css.Styleable;
 import javafx.scene.control.PopupControl;
 import javafx.scene.control.Skin;
 
-import dejv.jfx.controls.radialmenu.skin.RadialMenuPopupSkin;
+import dejv.jfx.controls.radialmenu.skin.ContextRadialMenuSkin;
 
 /**
  * <p>
@@ -17,38 +17,31 @@ import dejv.jfx.controls.radialmenu.skin.RadialMenuPopupSkin;
  * @author dejv78 (dejv78.github.io)
  * @since 1.0.0
  */
-public class RadialMenuPopup
+public class ContextRadialMenu
         extends PopupControl {
 
-    private static final String DEFAULT_STYLE_CLASS = "radial-menu-popup";
+    private static final String DEFAULT_STYLE_CLASS = "radial-menu";
 
-    private final ObjectProperty<RadialMenu> menu = new SimpleObjectProperty<>();
+    private final ObservableList<RadialMenuItem> items;
 
 
-    public RadialMenuPopup() {
-        getStyleClass().addAll(DEFAULT_STYLE_CLASS);
+    public ContextRadialMenu() {
+        this(FXCollections.observableArrayList());
     }
 
+    public ContextRadialMenu(ObservableList<RadialMenuItem> items) {
+        getStyleClass().addAll(DEFAULT_STYLE_CLASS);
+        this.items = items;
+    }
 
     /*******************************************************************************************************
      * Properties
      *******************************************************************************************************/
 
-     // ---------------------- RADIAL MENU
 
-
-    public RadialMenu getMenu() {
-        return menu.get();
-    }
-
-
-    public ObjectProperty<RadialMenu> menuProperty() {
-        return menu;
-    }
-
-
-    public void setMenu(RadialMenu menu) {
-        this.menu.set(menu);
+    // ---------------------- MENU ITEMS
+    public ObservableList<RadialMenuItem> getItems() {
+        return items;
     }
 
 
@@ -59,7 +52,7 @@ public class RadialMenuPopup
 
     @Override
     protected Skin<?> createDefaultSkin() {
-        return new RadialMenuPopupSkin(this);
+        return new ContextRadialMenuSkin(this);
     }
 
 

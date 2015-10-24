@@ -33,7 +33,7 @@ import dejv.jfx.controls.radialmenu.skin.RadialMenuItemSkin;
 public class RadialMenuItem
         extends Control {
 
-    private static final String DEFAULT_STYLE_CLASS = "radial-menu-item-button";
+    private static final String DEFAULT_STYLE_CLASS = "radial-menu-button";
     private static final double DEFAULT_SIZE = 20d;
 
     private static final String PROP_NAME_SIZE = "size";
@@ -49,6 +49,7 @@ public class RadialMenuItem
 
 
     public RadialMenuItem() {
+        getStyleClass().addAll(DEFAULT_STYLE_CLASS);
     }
 
 

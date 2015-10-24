@@ -1,13 +1,10 @@
 package dejv.jfx.controls.radialmenu.skin;
 
-import javafx.beans.property.DoubleProperty;
 import javafx.geometry.Point2D;
-import javafx.scene.control.ContentDisplay;
-import javafx.scene.control.SkinBase;
 import javafx.scene.control.ToggleButton;
 
 import dejv.jfx.controls.radialmenu.RadialMenu;
-import dejv.jfx.controls.radialmenu.RadialMenuPopup;
+import dejv.jfx.controls.radialmenu.ContextRadialMenu;
 
 /**
  * <p>
@@ -16,24 +13,17 @@ import dejv.jfx.controls.radialmenu.RadialMenuPopup;
  * @since 1.0.0
  */
 public class RadialMenuSkin
-        extends SkinBase<RadialMenu> {
+        extends RadialMenuSkinBase<RadialMenu, ToggleButton> {
 
     private final ToggleButton button;
-    private final RadialMenuPopup popup = new RadialMenuPopup();
+    private final ContextRadialMenu popup;
 
 
     public RadialMenuSkin(RadialMenu control) {
-        super(control);
+        super(control, new ToggleButton());
 
-        button = new ToggleButton();
-        button.setContentDisplay(ContentDisplay.GRAPHIC_ONLY);
-
-        getChildren().add(button);
-
-        bindSize();
-        bindGraphic();
-        bindTooltip();
-        bindMenu();
+        button = getButton();
+        popup = new ContextRadialMenu(control.getItems());
 
         button.selectedProperty().addListener((sender, oldValue, newValue) -> {
             if (newValue) {
@@ -42,39 +32,5 @@ public class RadialMenuSkin
                 popup.show(button, p.getX(), p.getY());
             }
         });
-    }
-
-
-    private void bindSize() {
-        final DoubleProperty sizeProperty = getSkinnable().sizeProperty();
-        button.minWidthProperty().bind(sizeProperty);
-        button.minHeightProperty().bind(sizeProperty);
-        button.prefWidthProperty().bind(sizeProperty);
-        button.prefHeightProperty().bind(sizeProperty);
-        button.maxWidthProperty().bind(sizeProperty);
-        button.maxHeightProperty().bind(sizeProperty);
-
-        updateButtonRadius(sizeProperty.doubleValue());
-        getSkinnable().sizeProperty().addListener((sender, oldValue, newValue) -> updateButtonRadius(newValue.doubleValue()));
-    }
-
-
-    private void bindGraphic() {
-        button.graphicProperty().bind(getSkinnable().graphicProperty());
-    }
-
-
-    private void bindTooltip() {
-        button.tooltipProperty().bind(getSkinnable().tooltipProperty());
-    }
-
-
-    private void bindMenu() {
-        popup.menuProperty().bind(getSkinnable().menuProperty());
-    }
-
-
-    private void updateButtonRadius(double size) {
-        button.setStyle("-fx-background-radius: " + size);
     }
 }

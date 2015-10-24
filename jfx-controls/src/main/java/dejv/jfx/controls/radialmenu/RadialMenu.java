@@ -12,14 +12,7 @@ import javafx.collections.ObservableList;
 public class RadialMenu
         extends RadialMenuItem {
 
-    private static final String DEFAULT_STYLE_CLASS = "radial-menu-button";
-
     private final ObservableList<RadialMenuItem> items = FXCollections.observableArrayList();
-
-
-    public RadialMenu() {
-        getStyleClass().addAll(DEFAULT_STYLE_CLASS);
-    }
 
 
     /*******************************************************************************************************
