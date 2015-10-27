@@ -7,6 +7,7 @@ import javafx.scene.paint.Color;
 import javafx.scene.shape.Circle;
 
 import dejv.jfx.controls.radialmenu.ContextRadialMenu;
+import dejv.jfx.controls.radialmenu.skin.internal.RadialMenuSection;
 
 /**
  * <p>
@@ -26,6 +27,8 @@ public class ContextRadialMenuSkin
 
     private final Pane root;
 
+    private RadialMenuSection topSection;
+
     public ContextRadialMenuSkin(ContextRadialMenu control) {
         this.popup = control;
         root = new Pane();
@@ -40,6 +43,11 @@ public class ContextRadialMenuSkin
         perimeter.setFill(Color.TRANSPARENT);
         center.setStroke(Color.RED);
         root.getChildren().addAll(center, perimeter);
+
+        popup.onShowingProperty().addListener((observable)-> {
+            topSection = new RadialMenuSection(popup, root, popup.getItems(), null, null);
+            topSection.show();
+        });
     }
 
 

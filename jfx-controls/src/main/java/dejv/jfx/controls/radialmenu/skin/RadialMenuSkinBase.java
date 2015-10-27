@@ -1,6 +1,7 @@
 package dejv.jfx.controls.radialmenu.skin;
 
 import javafx.beans.property.DoubleProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.scene.control.ButtonBase;
 import javafx.scene.control.ContentDisplay;
 import javafx.scene.control.SkinBase;
@@ -17,6 +18,11 @@ public class RadialMenuSkinBase<C extends RadialMenuItem, B extends ButtonBase>
         extends SkinBase<RadialMenuItem> {
 
     private final B button;
+
+    private final DoubleProperty transformOpacity = new SimpleDoubleProperty();
+    private final DoubleProperty transformAngle = new SimpleDoubleProperty();
+    private final DoubleProperty transformRadius = new SimpleDoubleProperty();
+
 
     /**
      * Constructor for all SkinBase instances.

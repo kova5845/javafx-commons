@@ -47,6 +47,9 @@ public class RadialMenuItem
     private ObjectProperty<Node> graphic = new SimpleObjectProperty<>(this, PROP_NAME_GRAPHIC);
     private StyleableStringProperty imageUrl = null;
 
+    private double angle;
+    private double fromRadius;
+
 
     public RadialMenuItem() {
         getStyleClass().addAll(DEFAULT_STYLE_CLASS);

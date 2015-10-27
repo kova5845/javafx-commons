@@ -1,18 +1,16 @@
 package dejv.jfx.controls.radialmenu.skin.internal;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
-import javafx.event.ActionEvent;
-import javafx.scene.control.Menu;
-import javafx.scene.control.MenuItem;
-import javafx.scene.shape.Circle;
+import javafx.scene.layout.Pane;
 
-import dejv.commons.jfx.geometry.ObservablePoint2D;
-import dejv.jfx.controls.radialmenu1.RadialMenuParams;
+import dejv.jfx.controls.radialmenu.RadialMenu;
+import dejv.jfx.controls.radialmenu.RadialMenuItem;
+import dejv.jfx.controls.radialmenu.RadialMenuParams;
+import dejv.jfx.controls.radialmenu.RadialMenuParams.Direction;
 import dejv.jfx.controls.radialmenu1.internal.RadialMenuItemCoords;
-import dejv.jfx.controls.radialmenu1.internal.RadialPane;
 
 /**
  * One section of Radial Menu.
@@ -33,49 +31,27 @@ import dejv.jfx.controls.radialmenu1.internal.RadialPane;
 public class RadialMenuSection {
 
     private static final double TWO_PI_DEG = 360;
+    private static final List<RadialMenuSection> activeSubSections = new ArrayList<>();
 
-    private final ContextRadialMenu owner;
     private final RadialMenuParams params;
-
-    private final RadialPane radialPane;
+    private final Pane pane;
     private final RadialMenuSection parentSection;
+    private final ObservableList<RadialMenuItem> items;
 
     private final double angularAxisDeg;
     private final double angularTotalSizeDeg;
-
-    private final ObservableList<RadialMenuItem> items = FXCollections.observableArrayList();
 
     private final double innerRadius;
     private final double nominalRadius;
     private final double outerRadius;
 
 
-    /**
-     * Create new RadialMenuSection
-     *
-     * @param owner          Radial Menu the new section should belong to
-     * @param pane           Radial Pane on which to add the items
-     * @param menu           Menu to represent
-     * @param parentSection  Parent RadialMenuSection (can be null)
-     * @param angularAxisDeg Explicit angular axis (can be null)
-     * @return New RadialMenuSection
-     */
-    public static RadialMenuSection add(ContextRadialMenu owner, RadialPane pane, Menu menu, RadialMenuSection parentSection, Double angularAxisDeg) {
+    public RadialMenuSection(RadialMenuParams params, Pane pane, ObservableList<RadialMenuItem> items, RadialMenuSection parentSection, Double angularAxisDeg) {
 
-        final RadialMenuSection section = new RadialMenuSection(owner, pane, menu, parentSection, angularAxisDeg);
-
-        pane.addSection(menu, section);
-
-        return section;
-    }
-
-
-    private RadialMenuSection(ContextRadialMenu owner, RadialPane pane, Menu menu, RadialMenuSection parentSection, Double angularAxisDeg) {
-
-        this.owner = owner;
-        this.params = owner.getRadialMenuParams();
-        this.radialPane = pane;
+        this.params = params;
+        this.pane = pane;
         this.parentSection = parentSection;
+        this.items = items;
 
         final double itemRadiusHalf = params.getButtonSize() * 0.5;
 
@@ -86,7 +62,7 @@ public class RadialMenuSection {
         final double angleRad = Math.toRadians(angleDeg);
         final double availablePerimeter = angleRad * (innerRadius + itemRadiusHalf);
 
-        final int itemsCount = menu.getItems().size();
+        final int itemsCount = items.size();
         final double gapSize = params.getButtonSize() * params.getGapFactor();
         final double allItemsSize = params.getButtonSize() * (itemsCount - 1);
         final double totalSize = allItemsSize + gapSize * (itemsCount - 1);
@@ -118,19 +94,17 @@ public class RadialMenuSection {
 
         final double angularItemSizeDeg = angularTotalSizeDeg / itemsCount;
 
-        generateItems(owner, menu, itemsCount);
-
-        radialPane.getChildren().add(setupPerimeter());
+        generateItems();
     }
 
 
     public void show() {
-        items.forEach(RadialMenuItem::show);
+        items.forEach((item)->item.setVisible(true));
     }
 
 
     public void hide() {
-        items.forEach(RadialMenuItem::hide);
+        items.forEach((item)->item.setVisible(false));
     }
 
 
@@ -177,36 +151,24 @@ public class RadialMenuSection {
     }
 
 
-    private Circle setupPerimeter() {
-        final ObservablePoint2D anchor = radialPane.getAnchorPoint();
-
-        final Circle perimeter = new Circle();
-        perimeter.centerXProperty().bind(anchor.xProperty());
-        perimeter.centerYProperty().bind(anchor.yProperty());
-        perimeter.setRadius(outerRadius);
-        perimeter.setOpacity(0);
-        perimeter.setMouseTransparent(true);
-        return perimeter;
-    }
-
-
-    private void generateItems(ContextRadialMenu owner, Menu menu, int itemsCount) {
-        for (int i = 0; i < menu.getItems().size(); i++) {
-            final MenuItem item = menu.getItems().get(i);
+    private void generateItems() {
+        double itemsCount = items.size();
+        for (int i = 0; i < itemsCount; i++) {
+            final RadialMenuItem item = items.get(i);
 
             final double itemAngleDeg = calculateItemAngleDeg(itemsCount, i);
 
-            final RadialMenuItem itemButton = addItem(item, itemAngleDeg);
+            setupItem(item, itemAngleDeg);
 
-            if (item instanceof Menu) {
-                final Menu subMenu = (Menu) item;
+            if (item instanceof RadialMenu) {
+                final RadialMenu subMenu = (RadialMenu) item;
 
-                final RadialMenuSection subSection = add(owner, radialPane, subMenu, this, itemAngleDeg);
+                final RadialMenuSection subSection = new RadialMenuSection(params, pane, subMenu.getItems(), this, itemAngleDeg);
 
-                createAction(itemButton, item);
-                createTrigger(itemButton, subMenu, subSection);
-            } else {
-                createAction(itemButton, item);
+//                createAction(itemButton, item);
+//                createTrigger(itemButton, subMenu, subSection);
+//            } else {
+//                createAction(itemButton, item);
             }
         }
     }
@@ -226,50 +188,45 @@ public class RadialMenuSection {
     }
 
 
-    private RadialMenuItem addItem(MenuItem item, double itemAngleDeg) {
+    private void setupItem(RadialMenuItem item, double itemAngleDeg) {
 
         final RadialMenuItemCoords itemCoords = new RadialMenuItemCoords(itemAngleDeg, (parentSection != null) ? parentSection.nominalRadius : 0);
 
-        final RadialMenuItem itemButton = new RadialMenuItem(this, params, item, itemCoords);
+        //TODO: Set Coords
 
-        itemButton.layoutXProperty().bind(radialPane.getAnchorPoint().xProperty().subtract(params.buttonSizeProperty().multiply(0.5)));
-        itemButton.layoutYProperty().bind(radialPane.getAnchorPoint().yProperty().subtract(params.buttonSizeProperty().multiply(0.5)));
+        item.layoutXProperty().bind(params.buttonSizeProperty().multiply(-0.5));
+        item.layoutYProperty().bind(params.buttonSizeProperty().multiply(-0.5));
 
-        items.add(itemButton);
-        radialPane.getChildren().add(itemButton);
-
-        return itemButton;
+        pane.getChildren().add(item);
     }
 
 
-    private void createAction(RadialMenuItem itemButton, MenuItem item) {
-        if (item.getOnAction() != null) {
-            itemButton.setOnAction(event -> {
-                item.getOnAction().handle(new ActionEvent(radialPane.getEventSource(), event.getTarget()));
-                owner.hide();
-            });
-        }
-    }
+//    private void createAction(RadialMenuItem itemButton, MenuItem item) {
+//        if (item.getOnAction() != null) {
+//            itemButton.setOnAction(event -> {
+//                item.getOnAction().handle(new ActionEvent(radialPane.getEventSource(), event.getTarget()));
+//                popup.hide();
+//            });
+//        }
+//    }
+//
+//
+//    private void createTrigger(RadialMenuItem itemButton, Menu menu, RadialMenuSection subSection) {
+//        itemButton.setOnTrigger(event -> {
+//
+//            boolean alreadyPresent = checkPresenceAndCloseExtraSections(this, subSection);
+//
+//            if (!alreadyPresent) {
+//
+//                radialPane.getActiveSubSections().add(subSection);
+//                subSection.show();
+//            }
+//        });
+//    }
 
 
-    private void createTrigger(RadialMenuItem itemButton, Menu menu, RadialMenuSection subSection) {
-        itemButton.setOnTrigger(event -> {
-
-            boolean alreadyPresent = checkPresenceAndCloseExtraSections(this, subSection);
-
-            if (!alreadyPresent) {
-
-                radialPane.getActiveSubSections().add(subSection);
-                subSection.show();
-            }
-        });
-    }
-
-
-    private boolean checkPresenceAndCloseExtraSections(RadialMenuSection currentSection, RadialMenuSection sectionToOpen) {
-        final List<RadialMenuSection> activeSubSections = radialPane.getActiveSubSections();
-
-        if (radialPane.getActiveSubSections().size() > 0) {
+    private static boolean checkPresenceAndCloseExtraSections(RadialMenuSection currentSection, RadialMenuSection sectionToOpen) {
+        if (activeSubSections.size() > 0) {
             int idx = activeSubSections.indexOf(sectionToOpen);
 
             if (idx >= 0) { // Do not remove subsection, keep current sub-tree
