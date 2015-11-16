@@ -6,6 +6,7 @@ import java.util.List;
 
 import javafx.beans.property.DoubleProperty;
 import javafx.beans.property.ObjectProperty;
+import javafx.beans.property.SimpleDoubleProperty;
 import javafx.beans.property.SimpleObjectProperty;
 import javafx.beans.value.WritableValue;
 import javafx.css.CssMetaData;
@@ -23,6 +24,7 @@ import com.sun.javafx.css.StyleManager;
 
 import dejv.jfx.controls.css.CssHelper;
 import dejv.jfx.controls.radialmenu.skin.RadialMenuItemSkin;
+import dejv.jfx.controls.radialmenu.skin.internal.RadialMenuSection;
 
 /**
  * <p>
@@ -47,14 +49,59 @@ public class RadialMenuItem
     private ObjectProperty<Node> graphic = new SimpleObjectProperty<>(this, PROP_NAME_GRAPHIC);
     private StyleableStringProperty imageUrl = null;
 
-    private double angle;
-    private double fromRadius;
+    private ObjectProperty<RadialMenuSection> section  = new SimpleObjectProperty<>();
+    private DoubleProperty angle = new SimpleDoubleProperty();
+    private DoubleProperty fromRadius = new SimpleDoubleProperty();
 
 
     public RadialMenuItem() {
         getStyleClass().addAll(DEFAULT_STYLE_CLASS);
     }
 
+
+    public double getAngle() {
+        return angle.get();
+    }
+
+
+    public DoubleProperty angleProperty() {
+        return angle;
+    }
+
+
+    public void setAngle(double angle) {
+        this.angle.set(angle);
+    }
+
+
+    public double getFromRadius() {
+        return fromRadius.get();
+    }
+
+
+    public DoubleProperty fromRadiusProperty() {
+        return fromRadius;
+    }
+
+
+    public void setFromRadius(double fromRadius) {
+        this.fromRadius.set(fromRadius);
+    }
+
+
+    public RadialMenuSection getSection() {
+        return section.get();
+    }
+
+
+    public ObjectProperty<RadialMenuSection> sectionProperty() {
+        return section;
+    }
+
+
+    public void setSection(RadialMenuSection section) {
+        this.section.set(section);
+    }
 
     // ---------------------- SIZE
 

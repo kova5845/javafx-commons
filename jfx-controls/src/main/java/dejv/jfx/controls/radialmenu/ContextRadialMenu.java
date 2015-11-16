@@ -33,7 +33,7 @@ public class ContextRadialMenu
     private final DoubleProperty spacingFactor = new SimpleDoubleProperty(0.3d);
     private final DoubleProperty minRadius = new SimpleDoubleProperty(25.0d);
 
-    private final DoubleProperty buttonSize = new SimpleDoubleProperty(30d);
+    private final DoubleProperty buttonSize = new SimpleDoubleProperty(20d);
     private final DoubleProperty outerPadding = new SimpleDoubleProperty(10d);
 
     private ObjectProperty<Direction> direction = new SimpleObjectProperty<>(Direction.CW);

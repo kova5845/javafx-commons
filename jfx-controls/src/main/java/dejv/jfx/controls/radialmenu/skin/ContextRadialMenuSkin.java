@@ -18,17 +18,17 @@ import dejv.jfx.controls.radialmenu.skin.internal.RadialMenuSection;
 public class ContextRadialMenuSkin
         implements Skin<ContextRadialMenu> {
 
-    /**
-     * Constructor for all SkinBase instances.
-     *
-     * @param popup The popup for which this Skin should attach to.
-     */
     private final ContextRadialMenu popup;
 
     private final Pane root;
 
     private RadialMenuSection topSection;
 
+    /**
+     * Constructor for all SkinBase instances.
+     *
+     * @param control The popup for which this Skin should attach to.
+     */
     public ContextRadialMenuSkin(ContextRadialMenu control) {
         this.popup = control;
         root = new Pane();
@@ -44,10 +44,8 @@ public class ContextRadialMenuSkin
         center.setStroke(Color.RED);
         root.getChildren().addAll(center, perimeter);
 
-        popup.onShowingProperty().addListener((observable)-> {
-            topSection = new RadialMenuSection(popup, root, popup.getItems(), null, null);
-            topSection.show();
-        });
+        topSection = new RadialMenuSection(popup, root, popup.getItems(), null, null);
+        topSection.show();
     }
 
 

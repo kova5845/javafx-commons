@@ -10,7 +10,6 @@ import dejv.jfx.controls.radialmenu.RadialMenu;
 import dejv.jfx.controls.radialmenu.RadialMenuItem;
 import dejv.jfx.controls.radialmenu.RadialMenuParams;
 import dejv.jfx.controls.radialmenu.RadialMenuParams.Direction;
-import dejv.jfx.controls.radialmenu1.internal.RadialMenuItemCoords;
 
 /**
  * One section of Radial Menu.
@@ -189,13 +188,14 @@ public class RadialMenuSection {
 
 
     private void setupItem(RadialMenuItem item, double itemAngleDeg) {
-
-        final RadialMenuItemCoords itemCoords = new RadialMenuItemCoords(itemAngleDeg, (parentSection != null) ? parentSection.nominalRadius : 0);
-
-        //TODO: Set Coords
+        item.setVisible(false);
+        item.setSection(this);
+        item.setAngle(itemAngleDeg);
+        item.setFromRadius((parentSection != null) ? parentSection.nominalRadius : 0);
 
         item.layoutXProperty().bind(params.buttonSizeProperty().multiply(-0.5));
         item.layoutYProperty().bind(params.buttonSizeProperty().multiply(-0.5));
+        item.sizeProperty().bind(params.buttonSizeProperty());
 
         pane.getChildren().add(item);
     }

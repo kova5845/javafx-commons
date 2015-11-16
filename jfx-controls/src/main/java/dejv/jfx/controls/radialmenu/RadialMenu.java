@@ -2,6 +2,9 @@ package dejv.jfx.controls.radialmenu;
 
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
+import javafx.scene.control.Skin;
+
+import dejv.jfx.controls.radialmenu.skin.RadialMenuSkin;
 
 /**
  * <p>
@@ -20,10 +23,14 @@ public class RadialMenu
      *******************************************************************************************************/
 
 
-     // ---------------------- MENU ITEMS
+    // ---------------------- MENU ITEMS
     public ObservableList<RadialMenuItem> getItems() {
         return items;
     }
 
 
+    @Override
+    protected Skin<?> createDefaultSkin() {
+        return new RadialMenuSkin(this);
+    }
 }
